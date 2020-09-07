@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+		
+<mapper namespace="com.report.mappers.MainMapper">
+	<select id="loginCheck" resultType="uiDto">
+		{call SP_GET_TBUSERINFO_LOGIN(#{USERID},#{USERPW})}
+	</select>
+	<select id="userList" resultType="uiDto">
+		{call SP_GET_TBUSERINFO()}
+	</select>
+	<select id="insertUser" resultType="String">
+		{call SP_SET_TBUSERINFO(#{UNTCD},#{USERID},#{USERPW},#{EMPNM},#{DPTNM},#{HPNO},#{REMARK},#{REGUSER})}
+	</select>
+	
+	<select id="mstList" resultType="umiDto">
+		{call SP_GET_TBUNTMSTINFO()}
+	</select>
+	<select id="mstOne" resultType="umiDto">
+		{call SP_GET_TBUNTMSTINFO2(#{UNTCD})}
+	</select>
+</mapper>

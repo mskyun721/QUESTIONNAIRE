@@ -1,0 +1,52 @@
+@charset "UTF-8";
+.table1100{
+	border: 1px solid;
+	width: 1100px;
+	text-align: center;
+	border-collapse: collapse;
+}
+.table1500{
+	border: 1px solid;
+	width: 1500px;
+	text-align: center;
+	border-collapse: collapse;
+}
+.table5500{
+	border: 1px solid;
+	width: 5500px;
+	text-align: center;
+	border-collapse: collapse;
+}
+.table450{
+	border: 1px solid;
+	width: 450px;
+	text-align: center;
+	border-collapse: collapse;
+}
+.table100{
+	border: 1px solid;
+	width: 100%;
+	text-align: center;
+	border-collapse: collapse;
+}
+.table100 input[type=test]{border: 1px gray;}
+tr{border-bottom: 1px solid ;}
+th{border: 1px solid black;vertical-align: middle;background-color: #474747;color: white;}
+td{border: 1px solid;}
+
+#calTable{
+	border: 1px solid;
+	width: 1100px;
+	text-align: center;
+	height: 550px;
+	border-collapse: collapse;
+}
+#calTable th{font-size: 18px;text-decoration: underline;background-color: white;border: 1px solid;color: black;}
+#calTable .red{color: red;}
+#calTable .blue{color: blue;}
+#calTable .content{width: 10%;}
+#calTable .day{width: 4%;font-size: 25px;vertical-align: top;}
+table input{
+	height: 100%;
+	width: 90%;
+}

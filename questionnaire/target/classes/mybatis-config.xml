@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.report.dto.UserInfoDTO" alias="uiDto"/>
+		<typeAlias type="com.report.dto.UntMstInfoDTO" alias="umiDto"/>
+		<typeAlias type="com.report.dto.QuestionMstDTO" alias="qmDto"/>
+		<typeAlias type="com.report.dto.QuestionHisDTO" alias="qhDto"/>
+		<typeAlias type="com.report.dto.QuestionInfoDTO" alias="qiDto"/>
+	</typeAliases>
+	
+</configuration>
