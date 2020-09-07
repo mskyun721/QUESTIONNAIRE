@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>SUNSOFT</title>
+<title></title>
 <link type="text/css" href="resources/style/default.css" rel="stylesheet">
 <link type="text/css" href="resources/style/common.css" rel="stylesheet">
 <link type="text/css" href="resources/style/layout.css" rel="stylesheet">

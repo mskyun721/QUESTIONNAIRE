@@ -51,7 +51,7 @@ $(function(){
 			<ul>
 				<li><a href="#">설문 내용 등록</a>
 					<ul>
-						<li><a href="/question/report/addReport">주간 업무일지</a></li>
+						<li><a href="/question/survey/addQuestion">설문 등록</a></li>
 					</ul>
 				</li>
 				<li>
@@ -71,6 +71,7 @@ $(function(){
 		</nav>
 	</div>
 </header>
+
 <!-- //end header -->
 <div class="row">
   <div class="leftcolumn">
