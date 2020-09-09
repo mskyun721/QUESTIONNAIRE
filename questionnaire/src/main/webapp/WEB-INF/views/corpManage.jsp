@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>SUNSOFT</title>
+<title></title>
 <link type="text/css" href="resources/style/default.css" rel="stylesheet">
 <link type="text/css" href="resources/style/common.css" rel="stylesheet">
 <link type="text/css" href="resources/style/layout.css" rel="stylesheet">
@@ -23,9 +23,9 @@ $(document).ready(function() {
 		var result = $('#delRow'+num).val();
 		if (confirmResult) {
 			$.ajax({
-				url:"delCorp",
+				url:"delMst",
 				type:"get",
-				data:{CSTCD:result},
+				data:{UNTCD:result},
 				success:function(data){
 					location.reload();
 				}

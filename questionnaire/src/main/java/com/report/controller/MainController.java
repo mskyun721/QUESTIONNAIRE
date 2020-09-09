@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.report.dto.QuestionInfoDTO;
 import com.report.dto.UntMstInfoDTO;
 import com.report.dto.UserInfoDTO;
 import com.report.service.MainService;
@@ -86,6 +87,7 @@ public class MainController {
 	@RequestMapping(value = "/insertUser", method = RequestMethod.POST)
 	public String addUserPost(UserInfoDTO uiDto,Model model, HttpServletResponse response,HttpSession session) {
 		uiDto.setUNTCD(session.getAttribute("untcd").toString().trim());
+		uiDto.setREGUSER(session.getAttribute("userNM").toString().trim());
 		String result = mainService.insertUser(uiDto);
 		
 		try {
@@ -120,23 +122,62 @@ public class MainController {
 		}
 		return "corpManageForm";
 	}
-//	
 	@RequestMapping(value="/insertCst", method=RequestMethod.POST)
-	public String insertCst(UntMstInfoDTO umiDto,HttpServletResponse response){
-//		mainService.insertCst(umiDto);
-//		
-//		try {
-//			response.setContentType("text/html; charset=UTF-8");
-//			PrintWriter out = response.getWriter();
-//			out.println("<script>");
-//			out.println("window.opener.location.reload();");
-//			out.println("window.close();");
-//			out.println("</script>");
-//			out.flush();
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
+	public String insertCst(UntMstInfoDTO umiDto,HttpServletResponse response,HttpSession session){
+		umiDto.setREGUSER(session.getAttribute("userNM").toString().trim());
+		
+		mainService.insertCst(umiDto);
+		
+		try {
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("window.opener.location.reload();");
+			out.println("window.close();");
+			out.println("</script>");
+			out.flush();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		return "corpManageForm";
+	}
+	
+	
+	
+	@RequestMapping(value="/survey/addQuestion")
+	public String addQuestion(Model model,QuestionInfoDTO qiDto) {
+		String path ="";
+		List<QuestionInfoDTO> questionList = mainService.questinoList(qiDto);
+		
+		model.addAttribute("questionList",questionList);
+		path ="survey/addQuestion";
+		return path;
+	}
+	@RequestMapping(value="/survey/questionForm")
+	public String questionForm(Model model,QuestionInfoDTO qiDto) {
+		String path ="";
+		QuestionInfoDTO questionOne = mainService.questionOne(qiDto);
+		model.addAttribute("questionOne",questionOne);
+		path ="survey/questionForm";
+		return path;
+	}
+	@RequestMapping(value="/survey/insertQuestion", method=RequestMethod.POST)
+	public String insertQuestion(QuestionInfoDTO qiDto,HttpServletResponse response,HttpSession session){
+		qiDto.setREGUSER(session.getAttribute("userNM").toString().trim());
+		qiDto.setUNTCD(session.getAttribute("untcd").toString().trim());
+		mainService.insertQuestion(qiDto);
+		try {
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+			out.println("<script>");
+			out.println("window.opener.location.reload();");
+			out.println("window.close();");
+			out.println("</script>");
+			out.flush();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return "survey/questionForm";
 	}
 
 }

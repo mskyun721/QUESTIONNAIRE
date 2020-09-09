@@ -12,6 +12,15 @@ public class QuestionInfoDTO {
 	private String EDTUSER;
 	private String REGDATIME;
 	private String EDTDATIME;
+	private String orderType;
+	
+	public String getOrderType() {
+		return orderType;
+	}
+	public void setOrderType(String orderType) {
+		this.orderType = orderType;
+	}
+	
 	
 	public String getUNTCD() {
 		return UNTCD;

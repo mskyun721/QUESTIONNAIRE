@@ -21,6 +21,7 @@
 			<div class="floatLeft width200">
 				<div class="lbWidth"><label for="USERID">ID</label></div>
 				<input type="text" size="10" name="USERID" required="required" value="${userOne.USERID }">
+				
 			</div>
 		</div>
 		<div class="clear"></div>
@@ -47,32 +48,6 @@
 			</div>
 		</div>
 		<div class="clear"></div>
-		<%-- <div class="formRow">
-			<div class="floatLeft width200">
-				<div class="lbWidth"><label for="VIEWTYPE">조회권한</label></div>
-				<c:choose>
-					<c:when test="${oneUser.VIEWTYPE == 'N' }">
-						<select id="VIEWTYPE" name="VIEWTYPE">
-							<option value="N" selected>N</option>
-							<option value="Y">Y</option>
-						</select>
-					</c:when>
-					<c:when test="${oneUser.VIEWTYPE == 'Y' }">
-						<select id="VIEWTYPE" name="VIEWTYPE">
-							<option value="N" >N</option>
-							<option value="Y" selected>Y</option>
-						</select>
-					</c:when>
-					<c:otherwise>
-						<select id="VIEWTYPE" name="VIEWTYPE">
-							<option value="N" selected>N</option>
-							<option value="Y" >Y</option>
-						</select>
-					</c:otherwise>
-				</c:choose>
-			</div>
-		</div>
-		<div class="clear"></div> --%>
 		<div class="formRow">
 			<div class="floatLeft width200">
 				<div class="lbWidth"><label for="HPNO">H.P</label></div>
@@ -90,7 +65,7 @@
 		<br>
 		<div class="buttonBox">
 		<button type="submit"><i class="fas fa-save" style="font-size:15px;"></i>&nbsp;&nbsp;저장</button>&nbsp;
-		<button type="button" onclick="window.close; return false;"><i class="fas fa-window-close" style="font-size:15px;"></i>&nbsp;&nbsp;취소</button>
+		<button type="button" onclick="window.close(); return false;"><i class="fas fa-window-close" style="font-size:15px;"></i>&nbsp;&nbsp;취소</button>
 		</div>
 	</form>
 </div>

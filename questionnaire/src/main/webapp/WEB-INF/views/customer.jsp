@@ -102,11 +102,11 @@ header{width:280px;margin:auto;}
       <h1>설문조사</h1><br/>
       <div >
 	<form method="post" action="loginCheck">
-    <input type="text" placeholder="Username" name="USERID" required>
+    <input type="text" placeholder="이름" name="USERID" required>
     <br></br>
     
-    <input type="password" placeholder="Password" name="USERPW" required>
-    <button type="submit">Login</button>
+    <input type="text" placeholder="전화번호 ex)010-1234-5678" name="USERPW" required>
+    <button type="submit">설문 조사 시작</button>
     </form>
       <input type="checkbox" checked="checked" name="remember"> Remember me
    

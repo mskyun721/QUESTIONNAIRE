@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Service;
 
 import com.report.dao.MainDAO;
+import com.report.dto.QuestionInfoDTO;
 import com.report.dto.UntMstInfoDTO;
 import com.report.dto.UserInfoDTO;
 
@@ -48,6 +49,10 @@ public class MainServiceImpl implements MainService {
 		String result = mainDao.insertUser(uiDto);
 		return result;
 	}
+	@Override
+	public void delUser(UserInfoDTO uiDto) {
+		mainDao.delUser(uiDto);
+	}
 	
 	
 	
@@ -61,6 +66,34 @@ public class MainServiceImpl implements MainService {
 		UntMstInfoDTO mstOne = mainDao.mstOne(umiDto);
 		return mstOne;
 	}
+	@Override
+	public void insertCst(UntMstInfoDTO umiDto) {
+		mainDao.insertCst(umiDto);
+	}
+	@Override
+	public void delMst(UntMstInfoDTO umiDto) {
+		mainDao.delMst(umiDto);
+	}
 	
+	
+	
+	@Override
+	public List<QuestionInfoDTO> questinoList(QuestionInfoDTO qiDto) {
+		List<QuestionInfoDTO> questionList = mainDao.questionList(qiDto);
+		return questionList;
+	}
+	@Override
+	public QuestionInfoDTO questionOne(QuestionInfoDTO qiDto) {
+		QuestionInfoDTO questionOne = mainDao.questionOne(qiDto);
+		return questionOne;
+	}
+	@Override
+	public void insertQuestion(QuestionInfoDTO qiDto) {
+		mainDao.insertQuestion(qiDto);
+	}
+	@Override
+	public void delQuestion(QuestionInfoDTO qiDto) {
+		mainDao.delQuestion(qiDto);
+	}
 
 }

@@ -14,7 +14,7 @@
 </div>
 <div class="clear"></div>
 <div class="marginLeft_20">
-	<form action="insertUNT" method="post" class="subPageForm">
+	<form action="insertCst" method="post" class="subPageForm">
 		<div class="formRow">
 			<div class="floatLeft width200">
 				<div class="lbWidth"><label for="UNTCD">사업장코드</label></div>
@@ -82,7 +82,7 @@
 		</div>
 		<div class="buttonBox">
 		<button type="submit" id="">저장</button>&nbsp;
-		<button type="button" onclick="window.close();">취소</button>&nbsp;
+		<button type="button" onclick="window.close(); return false;">취소</button>&nbsp;
 		</div>
 	</form>
 </div>

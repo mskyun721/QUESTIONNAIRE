@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>SUNSOFT</title>
+<title></title>
 <link type="text/css" href="resources/style/default.css" rel="stylesheet">
 <link type="text/css" href="resources/style/common.css" rel="stylesheet">
 <link type="text/css" href="resources/style/layout.css" rel="stylesheet">
@@ -20,13 +20,14 @@ $(document).ready(function() {
 		var confirmResult = confirm("삭제하시겠습니까?");
 		var id = $(this).attr("id");
 		var num = id.replace("btnDel","");
-		var result = $('#delRow'+num).val();
+		var UNTCDresult = $('#UNTCDRow'+num).val();
+		var USERIDresult = $('#USERIDRow'+num).val();
 		if (confirmResult) {
 			$.ajax({
 				url:"delUser",
 				type:"get",
-				data:{USERID:result},
-				success:function(data){
+				data:{UNTCD:UNTCDresult,USERID:USERIDresult},
+				success:function(rdata){
 					location.reload();
 				}
 			});
@@ -56,6 +57,14 @@ $(document).ready(function() {
 		<div class="card">
 			<h3><i class="fas fa-caret-right"></i> 사용자 등록</h3>
 			<hr />
+			<div class="searchBox">
+				<div style="display: inline;" class="marginLeft_10">
+				<p style="display: inline;">부서</p>&nbsp;&nbsp;&nbsp;<input type="text" size="10">
+				</div>
+				<div style="display: inline;margin-left: 10em;">
+				<p style="display: inline;">부서</p>&nbsp;&nbsp;&nbsp;<input type="text" size="10">
+				</div>
+			</div>
 			<div>
 				<form method="post" action="searchUser">
 				<table class="table100">
@@ -91,7 +100,8 @@ $(document).ready(function() {
 						<td>${user.HPNO }</td>
 						<td>${user.REMARK }</td>
 						<td><button type="button" id="btnDel${i.index }"><i class="fas fa-trash-alt" style="font-size:15px;"></i>&nbsp;Del</button>
-							<input type="hidden" id="delRow${i.index }" value="${user.USERID }"></td></tr>
+							<input type="hidden" id="UNTCDRow${i.index }" value="${user.UNTCD }">
+							<input type="hidden" id="USERIDRow${i.index }" value="${user.USERID }"></td></tr>
 					</c:forEach>
 					</tbody>
 				</table>

@@ -13,6 +13,10 @@
 	<select id="insertUser" resultType="String">
 		{call SP_SET_TBUSERINFO(#{UNTCD},#{USERID},#{USERPW},#{EMPNM},#{DPTNM},#{HPNO},#{REMARK},#{REGUSER})}
 	</select>
+	<delete id="delUser">
+		{call SP_DEL_TBUSERINFO(#{UNTCD},#{USERID})}
+	</delete>
+	
 	
 	<select id="mstList" resultType="umiDto">
 		{call SP_GET_TBUNTMSTINFO()}
@@ -20,4 +24,26 @@
 	<select id="mstOne" resultType="umiDto">
 		{call SP_GET_TBUNTMSTINFO2(#{UNTCD})}
 	</select>
+	<insert id="insertCst">
+		{call SP_SET_TBUNTMSTINFO(#{UNTCD},#{UNTNM},#{UNTCEO},#{BIZNO},#{CORPNO},#{BIZITEM},#{BIZKIND},#{TELNO},#{FAXNO},#{ZIPNO},#{ADDR},#{ADDRDET},#{REMARK},#{REGUSER})}
+	</insert>
+	<delete id="delMst">
+		{call SP_DEL_TBUNTMSTINFO(#{UNTCD})}
+	</delete>
+	
+	
+	<select id="questionList" resultType="qiDto">
+		{call SP_GET_TBQUESTIONINFO(#{orderType},#{USETYPE})}
+	</select>
+	<select id="questionOne" resultType="qiDto">
+		{call SP_GET_TBQUESTIONINFO2(#{UNTCD},#{QUESEQ})}
+	</select>
+	<insert id="insertQuestion">
+		{call SP_SET_TBQUESTIONINFO(#{UNTCD},#{QUESEQ},#{QUECONT},#{QUENO},#{USETYPE},#{REMARK},#{REGUSER})}
+	</insert>
+	<delete id="delQuestion">
+		{call SP_DEL_TBQUESTIONINFO(#{UNTCD},#{QUESEQ})}
+	</delete>
+	
+	
 </mapper>
