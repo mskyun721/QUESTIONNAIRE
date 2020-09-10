@@ -30,6 +30,11 @@ public class MainController {
 		
 		return "login";
 	}
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logout(Model model,HttpSession session) {
+		session.invalidate();
+		return "redirect:/";
+	}
 	
 	@RequestMapping(value = "/loginCheck", method = RequestMethod.POST)
 	public String loginCheck(Model model,UserInfoDTO uiDto,HttpSession session,HttpServletResponse response){
@@ -67,11 +72,15 @@ public class MainController {
 	}
 	
 	@RequestMapping(value = "/addUser", method = RequestMethod.GET)
-	public String addUserGet(UserInfoDTO uiDto,Model model) {
+	public String addUserGet(UserInfoDTO uiDto,Model model,HttpSession session) {
 		List<UserInfoDTO> userList;
+		uiDto.setUNTCD(session.getAttribute("untcd").toString());
 		userList=mainService.userList(uiDto);
-		model.addAttribute("userList",userList);
 		
+		List<UserInfoDTO> dptList = mainService.dptList(uiDto);
+		
+		model.addAttribute("userList",userList);
+		model.addAttribute("dptList",dptList);
 		return "addUser";
 	}
 	
@@ -106,8 +115,9 @@ public class MainController {
 	}
 	
 	@RequestMapping(value="/corpManage", method=RequestMethod.GET)
-	public String corpManage(Model model,UntMstInfoDTO umiDto){
+	public String corpManage(Model model,UntMstInfoDTO umiDto,HttpSession session){
 		List<UntMstInfoDTO> corpList;
+		umiDto.setUNTCD(session.getAttribute("untcd").toString());
 		corpList = mainService.mstList(umiDto);
 		model.addAttribute("corpList",corpList);
 		
@@ -145,8 +155,9 @@ public class MainController {
 	
 	
 	@RequestMapping(value="/survey/addQuestion")
-	public String addQuestion(Model model,QuestionInfoDTO qiDto) {
+	public String addQuestion(Model model,QuestionInfoDTO qiDto, HttpSession session) {
 		String path ="";
+		qiDto.setUNTCD(session.getAttribute("untcd").toString());
 		List<QuestionInfoDTO> questionList = mainService.questinoList(qiDto);
 		
 		model.addAttribute("questionList",questionList);

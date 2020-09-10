@@ -99,7 +99,7 @@ header{width:280px;margin:auto;}
 <header>
 <div class="container">
     <div class="row">
-      <h1>설문조사</h1><br/>
+      <h1>로그인</h1><br/>
       <div >
 	<form method="post" action="loginCheck">
     <input type="text" placeholder="Username" name="USERID" required>

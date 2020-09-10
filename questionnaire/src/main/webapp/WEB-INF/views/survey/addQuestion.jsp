@@ -64,49 +64,24 @@ $(document).ready(function() {
 			<h3><i class="fas fa-caret-right"></i>설문 추가</h3>
 			<hr />
 			<div class="searchBox">
-				<div style="display: inline;" class="marginLeft_10">
-					<c:choose>
-					<c:when test="${param.orderType == '0' }">
-						<select id="orderType" name="orderType" onchange="orderTypeChange(); return false;">
-						<option value="0" selected>No. 정렬</option>
-						<option value="1">질문번호 정렬</option>
-					</select>
-					</c:when>
-					<c:when test="${param.orderType == '1' }">
-						<select id="orderType" name="orderType">
-						<option value="0">No. 정렬</option>
-						<option value="1" selected>질문번호 정렬</option>
-					</select>
-					</c:when>
-					<c:otherwise>
-						<select id="orderType" name="orderType">
-						<option value="0" selected="selected">No. 정렬</option>
-						<option value="1">질문번호 정렬</option>
-					</select>
-					</c:otherwise>
-				</c:choose>
-				</div>
-				<div style="display: inline;margin-left: 10em;">
-					<p style="display: inline;">사용구분</p>&nbsp;&nbsp;&nbsp;
+				<div>
+					&nbsp;&nbsp;<p style="display: inline;">사용구분</p>&nbsp;&nbsp;
 					<c:choose>
 					<c:when test="${param.USETYPE == 'Y' }">
 						<select id="USETYPE" name="USETYPE" style="width: 50px;">
-							<option value="">전체</option>
 							<option value="Y" selected>Y</option>
 							<option value="N">N</option>
 						</select>
 					</c:when>
 					<c:when test="${param.USETYPE == 'N' }">
 						<select id="USETYPE" name="USETYPE" style="width: 50px;">
-							<option value="">전체</option>
 							<option value="Y" >Y</option>
 							<option value="N" selected>N</option>
 						</select>
 					</c:when>
 					<c:otherwise>
 						<select id="USETYPE" name="USETYPE" style="width: 50px;">
-							<option value="" selected>전체</option>
-							<option value="Y" >Y</option>
+							<option value="Y" selected>Y</option>
 							<option value="N">N</option>
 						</select>
 					</c:otherwise>
@@ -117,25 +92,23 @@ $(document).ready(function() {
 				<form method="post" action="searchUser">
 				<table class="table100">
 					<thead class="tableSection">
-						<tr><th style="width: 5%"></th>
-							<th style="width: 5%">NO.</th>
+						<tr><th style="width: 5%"><button type="button" onclick="window.open('questionForm','_blank','width=520, height=300'); return false" style="background-color: #1467b3;color: white;"><i class="fas fa-plus-square"></i>&nbsp;Add</button></th>
 							<th style="width: 5%">질문번호</th>
 							<th style="width: 50%">질문내용</th>
 							<th style="width: 20%">비고</th>
 							<th style="width: 10%">사용여부</th>
 							<th style="width: 5%"></th></tr>
-						<tr><td style="width: 5%"><button type="button" onclick="window.open('questionForm','_blank','width=520, height=300'); return false"><i class="fas fa-plus-square"></i>&nbsp;Add</button></td>
+						<!-- <tr><td style="width: 5%"><button type="button" onclick="window.open('questionForm','_blank','width=520, height=300'); return false"><i class="fas fa-plus-square"></i>&nbsp;Add</button></td>
 							<td style="width: 5%"><input type="text"></td>
 							<td style="width: 5%"><input type="text"></td>
 							<td style="width: 50%"><input type="text"></td>
 							<td style="width: 20%"><input type="text"></td>
 							<td style="width: 10%"><input type="text"></td>
-							<td style="width: 5%"></td></tr>
+							<td style="width: 5%"></td></tr> -->
 					</thead>
 					<tbody>
 					<c:forEach items="${questionList }" var="list" varStatus="i">
 						<tr><td width="30"><button type="button" onclick="window.open('questionForm?UNTCD=${list.UNTCD}&QUESEQ=${list.QUESEQ}','_blank','width=520, height=300'); return false"><i class="fas fa-edit"></i>&nbsp;Edit</button></td>
-						<td>${list.QUESEQ }</td>
 						<td>${list.QUENO }</td>
 						<td style="text-align: left;">${list.QUECONT }</td>
 						<td>${list.REMARK }</td>

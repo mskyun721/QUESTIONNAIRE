@@ -15,6 +15,8 @@ public interface MainService {
 	List<UserInfoDTO> userList(UserInfoDTO uiDto);
 	String insertUser(UserInfoDTO uiDto);
 	void delUser(UserInfoDTO uiDto);
+	List<UserInfoDTO> dptList(UserInfoDTO uiDto);
+	
 	
 	List<UntMstInfoDTO> mstList(UntMstInfoDTO umiDto);
 	UntMstInfoDTO mstOne(UntMstInfoDTO umiDto);
@@ -26,6 +28,7 @@ public interface MainService {
 	QuestionInfoDTO questionOne(QuestionInfoDTO qiDto);
 	void insertQuestion(QuestionInfoDTO qiDto);
 	void delQuestion(QuestionInfoDTO qiDto);
+	
 	
 	
 

@@ -11,7 +11,7 @@ public interface MainDAO {
 	UserInfoDTO logincheck(UserInfoDTO uiDto);
 
 	List<UserInfoDTO> userList(UserInfoDTO uiDto);
-
+	List<UserInfoDTO> dptList(UserInfoDTO uiDto);
 	String insertUser(UserInfoDTO uiDto);
 	void delUser(UserInfoDTO uiDto);
 	
@@ -33,6 +33,8 @@ public interface MainDAO {
 	void insertQuestion(QuestionInfoDTO qiDto);
 
 	void delQuestion(QuestionInfoDTO qiDto);
+
+	
 
 	
 

@@ -31,13 +31,16 @@ public class MainServiceImpl implements MainService {
 		
 		return result;
 	}
-	
 	@Override
 	public List<UserInfoDTO> userList(UserInfoDTO uiDto) {
 		List<UserInfoDTO> userList = mainDao.userList(uiDto);
 		return userList;
 	}
-	
+	@Override
+	public List<UserInfoDTO> dptList(UserInfoDTO uiDto) {
+		List<UserInfoDTO> dptList = mainDao.dptList(uiDto);
+		return dptList;
+	}
 	@Override
 	public UserInfoDTO userOne(UserInfoDTO uiDto) {
 		UserInfoDTO loginUser = mainDao.logincheck(uiDto);

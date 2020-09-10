@@ -28,6 +28,11 @@ public class MainDAOImpl implements MainDAO {
 		return userList;
 	}
 	@Override
+	public List<UserInfoDTO> dptList(UserInfoDTO uiDto) {
+		List<UserInfoDTO> dptList = sqlSession.selectList(Namespace+".dptList", uiDto);
+		return dptList;
+	}
+	@Override
 	public String insertUser(UserInfoDTO uiDto) {
 		String result = sqlSession.selectOne(Namespace+".insertUser", uiDto);
 		return result;

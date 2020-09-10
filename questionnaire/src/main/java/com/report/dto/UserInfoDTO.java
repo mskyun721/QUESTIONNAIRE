@@ -13,6 +13,16 @@ public class UserInfoDTO {
 	private String REGDATIME;
 	private String EDTDATIME;
 	
+	private String UNTNM;
+	
+	
+	public String getUNTNM() {
+		return UNTNM;
+	}
+	public void setUNTNM(String uNTNM) {
+		UNTNM = uNTNM;
+	}
+	
 	
 	public String getUNTCD() {
 		return UNTCD;

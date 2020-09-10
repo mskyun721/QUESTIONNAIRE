@@ -6,14 +6,14 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf-8">
-<link href="resources/font/fontawesome/css/all.css" rel="stylesheet" type="text/css">
+<link href="../resources/font/fontawesome/css/all.css" rel="stylesheet" type="text/css">
 <style>
 @font-face {
     font-family: 'NotoSansCJKkr-Regular';
-    src: url("resources/font/NotoSansCJKkr-Regular.otf") format("opentype");
+    src: url("../resources/font/NotoSansCJKkr-Regular.otf") format("opentype");
 }
 body {font-family: NotoSansCJKkr-Regular;
-background-image:url(resources/images/bg1.JPG);font-size:14px;
+background-image:url(../resources/images/bg1.JPG);font-size:14px;
     background-repeat: no-repeat; background-size:cover;
     background-position: 50% 0
 }
@@ -101,14 +101,16 @@ header{width:280px;margin:auto;}
     <div class="row">
       <h1>설문조사</h1><br/>
       <div >
-	<form method="post" action="loginCheck">
-    <input type="text" placeholder="이름" name="USERID" required>
-    <br></br>
-    
-    <input type="text" placeholder="전화번호 ex)010-1234-5678" name="USERPW" required>
+	<form method="post" action="research">
+	<c:if test="${sessionScope.untcd != null}"><input type="hidden" name="UNTCD" value="${sessionScope.untcd }"></c:if>
+	<c:if test="${sessionScope.untcd == null}"><input type="hidden" name="UNTCD" value="${param.UNTCD }"></c:if>
+    <input type="text" placeholder="이름" name="QUEEMPNM" required>
+    <br>
+    <input type="text" placeholder="온도" name="TEMPERATURE" required>
+    <br>
+    <input type="text" placeholder="전화번호   ex)010-1234-5678" name="QUEHPNO" required>
     <button type="submit">설문 조사 시작</button>
     </form>
-      <input type="checkbox" checked="checked" name="remember"> Remember me
    
       </div>  
     </div>
