@@ -38,7 +38,12 @@ $(document).ready(function() {
 				var type = $("input:radio[name=QUEINTYPE"+i+"]:checked").val();
 				var remark = $('#QUEREMARK'+i).val();
 				strBuffType += type+"/";
-				strBuffRemark += remark+"/";
+				if (remark=="") {
+					strBuffRemark += " /";
+				}else{
+					strBuffRemark += remark+"/";
+				}
+				
 				alert(strBuffRemark);
 				allCheck=true;
 			}
@@ -48,7 +53,7 @@ $(document).ready(function() {
 			$.ajax({
 				url:"insertResearch",
 				type:"get",
-				data:{QUEINTYPE:strBuffType,UNTCD:untcd,QUEHPNO:hpno,QUEREMARK:remark},
+				data:{QUEINTYPE:strBuffType,UNTCD:untcd,QUEHPNO:hpno,QUEREMARK:strBuffRemark},
 				success:function(rdata){
 					alert("설문조사 완료되었습니다.");
 					window.close();

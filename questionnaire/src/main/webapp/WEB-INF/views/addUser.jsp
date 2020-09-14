@@ -85,7 +85,7 @@ $(document).ready(function() {
 			<div>
 				<form method="post" action="searchUser">
 				<table class="table100">
-					<thead class="tableSection">
+					<thead>
 						<tr><th style="width: 5%"><button type="button" onclick="window.open('userForm','_blank','width=300, height=350'); return false" style="background-color: #1467b3;color: white;"><i class="fas fa-plus-square"></i>&nbsp;&nbsp;Add</button></th>
 							<th style="width: 5%">NO.</th>
 							<th style="width: 10%">사업장</th>
