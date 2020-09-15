@@ -89,7 +89,7 @@ public class RestfullController {
 	    
 	}
 	
-	@RequestMapping(value="/detailQuestion", method=RequestMethod.GET)
+	@RequestMapping(value="survey/detailQuestion", method=RequestMethod.GET)
 	public List<QuestionHisDTO> detailQuestion(QuestionHisDTO qhDto) {
 		System.out.println(qhDto.getQUEDATE());
 		List<QuestionHisDTO> detailQuestion = surveyService.detailQuestion(qhDto);

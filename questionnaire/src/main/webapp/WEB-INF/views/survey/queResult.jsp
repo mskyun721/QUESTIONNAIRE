@@ -23,8 +23,7 @@ $(document).ready(function() {
 		var untcd = $('#untcd'+num).val();
 		var quedate = $('#quedate'+num).val();
 		var quehpno = $('#quehpno'+num).val();
-		
-		/* $.ajax({
+		$.ajax({
 			url:"detailQuestion",
 			type:"get",
 			data:{UNTCD:untcd,QUEDATE:quedate,QUEHPNO:quehpno},
@@ -33,7 +32,7 @@ $(document).ready(function() {
 					alert(rdata[i].QUEHISSEQ);
 				};
 			}
-		}); */
+		});
 		
 	});
 
