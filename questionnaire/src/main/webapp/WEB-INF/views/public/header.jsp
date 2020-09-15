@@ -1,12 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
   
 <header>
 	<div class="wrap">
 		<div class="top">
 			<a href="#" class="btn_menu"><i class="fa fa-bars"></i></a>
 			<h1><a href="/question/Main"><img src="http://www.sunsoft.kr/images/sunsoft_logo.png" width="150" height="43" ></a></h1>
+			<div class="userInfo">${sessionScope.userNM }님</div>
 			<a href="/question/logout" class="btn_logout">로그아웃</a>
+			
 		</div>
 		<nav class="btm">
 			<ul>
@@ -19,7 +22,7 @@
 				<li>
 					<a href="#">설문 현황</a>
 					<ul>
-                        <!-- <li><a href="/question/report/corpRequest">업체 요청 사항</a></li> -->
+                        <li><a href="/question/survey/queResult">설문 현황</a></li>
 					</ul>
 				</li>
 				<li>

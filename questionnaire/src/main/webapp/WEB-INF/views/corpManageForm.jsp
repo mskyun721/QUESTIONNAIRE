@@ -16,11 +16,7 @@
 <div class="marginLeft_20">
 	<form action="insertCst" method="post" class="subPageForm">
 		<div class="formRow">
-			<div class="floatLeft width200">
-				<div class="lbWidth"><label for="UNTCD">사업장코드</label></div>
-				<input type="text" size="10" name="UNTCD" required="required" value="${mstOne.UNTCD }">
-			</div>
-			<div class="floatLeft marginLeft_50">
+			<div class="floatLeft">
 				<div class="lbWidth"><label for="UNTNM">사업장명</label></div>
 				<input type="text" size="10" name="UNTNM" required="required" value="${mstOne.UNTNM }">
 			</div>

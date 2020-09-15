@@ -19,6 +19,29 @@ public class UntMstInfoDTO {
 	private String REGDATIME;
 	private String EDTDATIME;
 	
+	private String USERID;
+	private String condition;
+	private String value;
+	
+	public String getUSERID() {
+		return USERID;
+	}
+	public void setUSERID(String uSERID) {
+		USERID = uSERID;
+	}
+	public String getCondition() {
+		return condition;
+	}
+	public void setCondition(String condition) {
+		this.condition = condition;
+	}
+	public String getValue() {
+		return value;
+	}
+	public void setValue(String value) {
+		this.value = value;
+	}
+	
 	
 	public String getUNTCD() {
 		return UNTCD;

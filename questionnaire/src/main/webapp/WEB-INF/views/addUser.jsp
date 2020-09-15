@@ -56,10 +56,7 @@ $(document).ready(function() {
 <jsp:include page="public/header.jsp"/>
 <!-- header -->
 <div class="row">
-	<!-- sidebar -->
-	<jsp:include page="public/sidebar.jsp"/>
-	<!-- sidebar -->
-	<div class="rightcolumn">
+	<div>
 		<div class="card">
 			<h3><i class="fas fa-caret-right"></i> 사용자 등록</h3>
 			<hr />
@@ -78,7 +75,7 @@ $(document).ready(function() {
 				</div>
 				<div style="display: inline;margin-left: 10em;">
 				<p style="display: inline;">사원명</p>&nbsp;&nbsp;&nbsp;
-				<input type="text" size="10" id="EMPNM" name="EMPNM" value="${param.EMPNM }">&nbsp;&nbsp;<button type="submit" ><i class="fas fa-search"></i>&nbsp;검색</button>
+				<input type="text" size="10" id="EMPNM" name="EMPNM" value="${param.EMPNM }">&nbsp;&nbsp;<button type="submit" ><i class="fas fa-search"></i>&nbsp;Sch</button>
 				</div>
 				</form>
 			</div>
@@ -114,7 +111,7 @@ $(document).ready(function() {
 						<td>${i.index+1 }</td>
 						<td>${user.UNTNM }</td>
 						<td>${user.USERID }</td>
-						<td>${user.USERPW }</td>
+						<td>*****</td>
 						<td>${user.EMPNM }</td>
 						<td>${user.DPTNM }</td>
 						<td>${user.HPNO }</td>

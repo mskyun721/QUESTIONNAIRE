@@ -12,13 +12,22 @@ public class QuestionInfoDTO {
 	private String EDTUSER;
 	private String REGDATIME;
 	private String EDTDATIME;
-	private String orderType;
 	
-	public String getOrderType() {
-		return orderType;
+	private String USERID;
+	private String UNTNM;
+	
+	
+	public String getUNTNM() {
+		return UNTNM;
 	}
-	public void setOrderType(String orderType) {
-		this.orderType = orderType;
+	public void setUNTNM(String uNTNM) {
+		UNTNM = uNTNM;
+	}
+	public String getUSERID() {
+		return USERID;
+	}
+	public void setUSERID(String uSERID) {
+		USERID = uSERID;
 	}
 	
 	

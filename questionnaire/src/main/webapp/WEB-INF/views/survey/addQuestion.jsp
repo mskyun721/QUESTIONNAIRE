@@ -16,16 +16,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
-	$('#orderType').change(function(){
-		var Type = $(this).val();
-		var USETYPE = $('#USETYPE').val();
-		location.href="/question/survey/addQuestion?orderType="+Type+"&USETYPE="+USETYPE;
-	});
 	
 	$('#USETYPE').change(function(){
 		var USETYPE = $(this).val();
 		var Type = $('#orderType').val();
-		location.href="/question/survey/addQuestion?orderType="+Type+"&USETYPE="+USETYPE;
+		location.href="/question/survey/addQuestion?USETYPE="+USETYPE;
 	});
 	
 	$("[id^=btnDel]").click(function () {
@@ -56,15 +51,14 @@ $(document).ready(function() {
 <jsp:include page="../public/header.jsp"/>
 <!-- header -->
 <div class="row">
-	<!-- sidebar -->
-	<jsp:include page="../public/sidebar.jsp"/>
-	<!-- sidebar -->
-	<div class="rightcolumn">
+	<div>
 		<div class="card">
-			<h3><i class="fas fa-caret-right"></i>설문 추가</h3>
+			<h3><i class="fas fa-caret-right"></i>설문 등록</h3>
 			<hr />
 			<div class="searchBox">
-				<div>
+				<span>사업장명</span>&nbsp;&nbsp;
+				<input type="text" size="10" name="UNTNM" id="UNTNM">
+				<div style="display: inline; margin-left: 10em;">
 					&nbsp;&nbsp;<p style="display: inline;">사용구분</p>&nbsp;&nbsp;
 					<c:choose>
 					<c:when test="${param.USETYPE == 'Y' }">
@@ -93,6 +87,7 @@ $(document).ready(function() {
 				<table class="table100">
 					<thead class="tableSection">
 						<tr><th style="width: 5%"><button type="button" onclick="window.open('questionForm','_blank','width=520, height=300'); return false" style="background-color: #1467b3;color: white;"><i class="fas fa-plus-square"></i>&nbsp;Add</button></th>
+							<c:if test="${sessionScope.userID == 'sunsoft' }"><th>사업장</th></c:if>
 							<th style="width: 5%">질문번호</th>
 							<th style="width: 50%">질문내용</th>
 							<th style="width: 20%">비고</th>
@@ -109,6 +104,7 @@ $(document).ready(function() {
 					<tbody>
 					<c:forEach items="${questionList }" var="list" varStatus="i">
 						<tr><td width="30"><button type="button" onclick="window.open('questionForm?UNTCD=${list.UNTCD}&QUESEQ=${list.QUESEQ}','_blank','width=520, height=300'); return false"><i class="fas fa-edit"></i>&nbsp;Edit</button></td>
+						<c:if test="${sessionScope.userID == 'sunsoft' }"><td>${list.UNTNM }</td></c:if>
 						<td>${list.QUENO }</td>
 						<td style="text-align: left;">${list.QUECONT }</td>
 						<td>${list.REMARK }</td>

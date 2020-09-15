@@ -1,6 +1,5 @@
 package com.report.controller;
 
-import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 
@@ -19,9 +18,7 @@ import com.report.service.SurveyService;
 
 
 @Controller
-public class CustomerController {
-	
-	
+public class SurveyController {
 	@Inject
 	SurveyService surveyService;
 	@Inject
@@ -48,14 +45,32 @@ public class CustomerController {
 		}
 		
 		qiDto.setUSETYPE("Y");
-		qiDto.setOrderType("1");
 		List<QuestionInfoDTO> questionList = mainService.questinoList(qiDto);
 		model.addAttribute("listCount",questionList.size());
 		model.addAttribute("questionList", questionList);
 		return "survey/research";
 	}
 	
-	
+	@RequestMapping(value = "/survey/queResult", method = RequestMethod.GET)
+	public String queResult(Model model,QuestionMstDTO qmDto,HttpSession session) {
+		Map<String, Object> map = surveyService.queDate();
+		String sessionID = session.getAttribute("userID").toString();
+		if(sessionID.equals("sunsoft")) {
+			qmDto.setUSERID(sessionID);
+		}else {
+			qmDto.setUNTCD(session.getAttribute("untcd").toString());
+		}
+		if(qmDto.getSTDATE() == null) {
+			qmDto.setSTDATE(map.get("firstDate").toString());
+			qmDto.setLTDATE(map.get("date").toString());
+		}
+		List<QuestionMstDTO> qmList = surveyService.qmList(qmDto);
+		
+		model.addAttribute("qmList",qmList);
+		model.addAttribute("stdate",map.get("firstDate"));
+		model.addAttribute("ltdate",map.get("date"));
+		return "survey/queResult";
+	}
 	
 	
 	

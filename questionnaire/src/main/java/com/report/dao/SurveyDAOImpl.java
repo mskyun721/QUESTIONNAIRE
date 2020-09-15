@@ -1,5 +1,7 @@
 package com.report.dao;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -21,5 +23,15 @@ public class SurveyDAOImpl implements SurveyDAO {
 	@Override
 	public void insertResearch(QuestionHisDTO qhDto) {
 		sqlSession.insert(Namespace+".insertResearch", qhDto);
+	}
+	@Override
+	public List<QuestionMstDTO> qmList(QuestionMstDTO qmDto) {
+		List<QuestionMstDTO> qmList = sqlSession.selectList(Namespace+".qmList", qmDto);
+		return qmList;
+	}
+	@Override
+	public List<QuestionHisDTO> detailQuestion(QuestionHisDTO qhDto) {
+		List<QuestionHisDTO> detailQuestion = sqlSession.selectList(Namespace+".detailQuestion", qhDto);
+		return detailQuestion;
 	}
 }

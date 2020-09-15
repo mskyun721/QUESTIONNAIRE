@@ -10,6 +10,35 @@ public class QuestionMstDTO {
 	private String CONFIRMDATIME;
 	private String REMARK;
 	
+	private String USERID;
+	private String UNTNM;
+	private String STDATE;
+	private String LTDATE;
+	
+	public String getUSERID() {
+		return USERID;
+	}
+	public void setUSERID(String uSERID) {
+		USERID = uSERID;
+	}
+	public String getUNTNM() {
+		return UNTNM;
+	}
+	public void setUNTNM(String uNTNM) {
+		UNTNM = uNTNM;
+	}
+	public String getSTDATE() {
+		return STDATE;
+	}
+	public void setSTDATE(String sTDATE) {
+		STDATE = sTDATE;
+	}
+	public String getLTDATE() {
+		return LTDATE;
+	}
+	public void setLTDATE(String lTDATE) {
+		LTDATE = lTDATE;
+	}
 	public String getUNTCD() {
 		return UNTCD;
 	}

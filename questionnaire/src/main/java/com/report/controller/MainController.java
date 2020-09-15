@@ -56,32 +56,43 @@ public class MainController {
 			}
 			path = "login";
 		}
-		
 		return path;
 	}
 	
 	@RequestMapping(value="/Main")
 	public String Main(HttpSession session, Model model) {
 		String path="";
-		String userID = (String)session.getAttribute("userID");
-		String userNM = (String)session.getAttribute("userNM");
-		model.addAttribute("userID", userID);
-		model.addAttribute("userNM", userNM);
-		path = "Main";
+		if(session.getAttribute("userID") == null) {
+			path="redirect:/";
+		}else {
+			String userID = (String)session.getAttribute("userID");
+			String userNM = (String)session.getAttribute("userNM");
+			model.addAttribute("userID", userID);
+			model.addAttribute("userNM", userNM);
+			path = "Main";
+		}
+		
 		return path;
 	}
 	
 	@RequestMapping(value = "/addUser", method = RequestMethod.GET)
 	public String addUserGet(UserInfoDTO uiDto,Model model,HttpSession session) {
+		String path="";
+		if(session.getAttribute("userID") == null) {
+			path="redirect:/";
+		}else {
 		List<UserInfoDTO> userList;
 		uiDto.setUNTCD(session.getAttribute("untcd").toString());
+		uiDto.setUSERID(session.getAttribute("userID").toString());
 		userList=mainService.userList(uiDto);
 		
-		List<UserInfoDTO> dptList = mainService.dptList(uiDto);
+		//List<UserInfoDTO> dptList = mainService.dptList(uiDto);
 		
 		model.addAttribute("userList",userList);
-		model.addAttribute("dptList",dptList);
-		return "addUser";
+		//model.addAttribute("dptList",dptList);
+		path="addUser";
+		}
+		return path;
 	}
 	
 	@RequestMapping(value = "/userForm", method = RequestMethod.GET)
@@ -95,7 +106,10 @@ public class MainController {
 	
 	@RequestMapping(value = "/insertUser", method = RequestMethod.POST)
 	public String addUserPost(UserInfoDTO uiDto,Model model, HttpServletResponse response,HttpSession session) {
-		uiDto.setUNTCD(session.getAttribute("untcd").toString().trim());
+		String sessionID = session.getAttribute("userID").toString();
+		if (!sessionID.equals("sunsoft")) {
+			uiDto.setUNTCD(session.getAttribute("untcd").toString().trim());
+		}
 		uiDto.setREGUSER(session.getAttribute("userNM").toString().trim());
 		String result = mainService.insertUser(uiDto);
 		
@@ -116,12 +130,19 @@ public class MainController {
 	
 	@RequestMapping(value="/corpManage", method=RequestMethod.GET)
 	public String corpManage(Model model,UntMstInfoDTO umiDto,HttpSession session){
+		String path="";
+		if(session.getAttribute("userID") == null) {
+			path="redirect:/";
+		}else {
 		List<UntMstInfoDTO> corpList;
 		umiDto.setUNTCD(session.getAttribute("untcd").toString());
+		umiDto.setUSERID(session.getAttribute("userID").toString());
 		corpList = mainService.mstList(umiDto);
 		model.addAttribute("corpList",corpList);
+		path="corpManage";
+		}
 		
-		return "corpManage";
+		return path;
 	}
 	
 	@RequestMapping(value="/corpManageForm", method=RequestMethod.GET)
@@ -156,12 +177,21 @@ public class MainController {
 	
 	@RequestMapping(value="/survey/addQuestion")
 	public String addQuestion(Model model,QuestionInfoDTO qiDto, HttpSession session) {
-		String path ="";
-		qiDto.setUNTCD(session.getAttribute("untcd").toString());
-		List<QuestionInfoDTO> questionList = mainService.questinoList(qiDto);
-		
-		model.addAttribute("questionList",questionList);
-		path ="survey/addQuestion";
+		String path="";
+		if(session.getAttribute("userID") == null) {
+			path="redirect:/";
+		}else {
+			String sessionID = session.getAttribute("userID").toString();
+			if (sessionID.equals("sunsoft")) {
+				qiDto.setUSERID(sessionID);
+			}else {
+				qiDto.setUNTCD(session.getAttribute("untcd").toString());
+			}
+			List<QuestionInfoDTO> questionList = mainService.questinoList(qiDto);
+			
+			model.addAttribute("questionList",questionList);
+			path ="survey/addQuestion";
+		}
 		return path;
 	}
 	@RequestMapping(value="/survey/questionForm")
@@ -190,5 +220,13 @@ public class MainController {
 		}
 		return "survey/questionForm";
 	}
-
+	
+	
+	@RequestMapping(value="/QRCodePrintForm")
+	public String QRCodePrintForm() {
+		String path="";
+		
+		path="QRCodePrintForm";
+		return path;
+	}
 }

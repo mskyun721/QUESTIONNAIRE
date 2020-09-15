@@ -8,7 +8,7 @@
 		{call SP_GET_TBUSERINFO_LOGIN(#{USERID},#{USERPW})}
 	</select>
 	<select id="userList" resultType="uiDto">
-		{call SP_GET_TBUSERINFO(#{UNTCD},#{DPTNM},#{EMPNM})}
+		{call SP_GET_TBUSERINFO(#{UNTCD},#{DPTNM},#{EMPNM},#{USERID})}
 	</select>
 	<select id="dptList" resultType="uiDto">
 		{call SP_GET_TBUSERINFO_DPTNM(#{UNTCD})}
@@ -22,7 +22,7 @@
 	
 	
 	<select id="mstList" resultType="umiDto">
-		{call SP_GET_TBUNTMSTINFO(#{UNTCD})}
+		{call SP_GET_TBUNTMSTINFO(#{UNTCD},#{USERID},#{condition},#{value})}
 	</select>
 	<select id="mstOne" resultType="umiDto">
 		{call SP_GET_TBUNTMSTINFO2(#{UNTCD})}
@@ -36,7 +36,7 @@
 	
 	
 	<select id="questionList" resultType="qiDto">
-		{call SP_GET_TBQUESTIONINFO(#{USETYPE},#{UNTCD})}
+		{call SP_GET_TBQUESTIONINFO(#{USETYPE},#{UNTCD},#{USERID},#{UNTNM})}
 	</select>
 	<select id="questionOne" resultType="qiDto">
 		{call SP_GET_TBQUESTIONINFO2(#{UNTCD},#{QUESEQ})}

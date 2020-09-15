@@ -11,6 +11,7 @@ header .wrap { margin:0 auto; position: relative;}
 header .top {position: relative; text-align: center; padding:14px 0;}
 header .top h1 {}
 header .top .btn_logout {display:inline-block; border:1px solid #ddd; padding:5px 10px; position: absolute; right:10px; top:10px;}
+header .top .userInfo {display:inline-block;position: absolute; right:100px; top:15px;}
 header .top .btn_menu {width:35px; height:35px; display:none; border:1px solid #ddd; position: absolute;top:10px; padding:5px;}
 header .top .btn_menu a { font-size:20px}
 header nav {border-bottom:0px solid #eee; margin-top:10px; background-color: #228aea;  }

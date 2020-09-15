@@ -1,20 +1,28 @@
 package com.report.controller;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.google.zxing.WriterException;
 import com.report.dto.QuestionHisDTO;
 import com.report.dto.QuestionInfoDTO;
 import com.report.dto.UntMstInfoDTO;
 import com.report.dto.UserInfoDTO;
 import com.report.service.MainService;
+import com.report.service.QRCodeUtils;
 import com.report.service.SurveyService;
 
 @RestController
@@ -23,6 +31,8 @@ public class RestfullController {
 	MainService mainService;
 	@Inject
 	SurveyService surveyService;
+	@Inject
+	QRCodeUtils qrUtils;
 	
 	@RequestMapping(value="/delUser", method=RequestMethod.GET)
 	public void delUser(UserInfoDTO uiDto)	{
@@ -45,7 +55,6 @@ public class RestfullController {
 		if(session.getAttribute("untcd") != null) {qiDto.setUNTCD(session.getAttribute("untcd").toString());}
 		else {qiDto.setUNTCD(qhDto.getUNTCD());}
 		qiDto.setUSETYPE("Y");
-		qiDto.setOrderType("1");
 		List<QuestionInfoDTO> questionList = mainService.questinoList(qiDto);
 		Map<String,Object> dateMap = surveyService.queDate();
 		
@@ -60,4 +69,33 @@ public class RestfullController {
 			surveyService.insertResearch(qhDto);
 		}
 	}
+	
+	@RequestMapping(value="/QrCode/{untcd}", method=RequestMethod.GET)
+	public void QRCode(HttpServletResponse response, Model model,@PathVariable("untcd") String untcd) {
+		
+		try {
+			ServletOutputStream sos = response.getOutputStream();
+			
+			qrUtils.QRcodeSet("http://sunsoft.codns.com:9009/?UNTCD="+untcd, 300, 300, sos);
+			sos.flush();
+			sos.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (WriterException e) {
+			e.printStackTrace();
+		}
+	    String QRsrc = "?width=150&height=150&text=http://sunsoft.codns.com?UNTCD="+untcd;
+	    model.addAttribute("QRsrc",QRsrc);
+	    
+	}
+	
+	@RequestMapping(value="/detailQuestion", method=RequestMethod.GET)
+	public List<QuestionHisDTO> detailQuestion(QuestionHisDTO qhDto) {
+		System.out.println(qhDto.getQUEDATE());
+		List<QuestionHisDTO> detailQuestion = surveyService.detailQuestion(qhDto);
+		
+		return detailQuestion;
+	    
+	}
+	
 }

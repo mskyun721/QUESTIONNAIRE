@@ -17,6 +17,16 @@
 <div class="clear"></div>
 <div class="marginLeft_20">
 	<form action="insertUser" method="post" class="subPageForm">
+		<c:if test="${sessionScope.userID == 'sunsoft' }">
+			<div class="formRow">
+				<div class="floatLeft width200">
+					<div class="lbWidth"><label for="UNTCD">사업장</label></div>
+					<input type="text" size="10" name="UNTCD" required="required" value="${userOne.USERID }">
+					
+				</div>
+			</div>
+			<div class="clear"></div>
+		</c:if>
 		<div class="formRow">
 			<div class="floatLeft width200">
 				<div class="lbWidth"><label for="USERID">ID</label></div>

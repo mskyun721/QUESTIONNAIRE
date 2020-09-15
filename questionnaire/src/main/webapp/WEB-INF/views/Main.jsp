@@ -46,21 +46,7 @@ $(function(){
 
 <!-- //end header -->
 <div class="row">
-  <div class="leftcolumn">
-    <div class="card">
-      <h3><i class="fas fa-caret-right"></i> Bookmark</h3>
-    </div>
-    <div class="card">
-      <h3><i class="fas fa-caret-right"></i> Bookmark</h3>
-    </div>
-    <div class="card">
-      <h3><i class="fas fa-caret-right"></i> Bookmark</h3>
-    </div>
-    <div class="card">
-      <h3><i class="fas fa-caret-right"></i> Bookmark</h3>
-    </div>
-  </div>
-  <div class="rightcolumn">
+  <div>
     <div class="card">
       <h3><i class="fas fa-caret-right"></i> 매장별 검침등록</h3>
       <hr />

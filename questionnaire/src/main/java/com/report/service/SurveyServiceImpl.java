@@ -2,6 +2,7 @@ package com.report.service;
 
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
@@ -30,7 +31,10 @@ public class SurveyServiceImpl implements SurveyService {
 		if (day<10) {strDay = "0"+day;}else {strDay=day+"";}
 		String date = year+"-"+strMonth+"-"+strDay;
 		
+		String firstDate = year+"-"+strMonth+"-01";
+		
 		dateMap.put("date", date);
+		dateMap.put("firstDate", firstDate);
 		
 		return dateMap;
 	}
@@ -42,5 +46,15 @@ public class SurveyServiceImpl implements SurveyService {
 	@Override
 	public void insertResearch(QuestionHisDTO qhDto) {
 		surveyDao.insertResearch(qhDto);
+	}
+	@Override
+	public List<QuestionMstDTO> qmList(QuestionMstDTO qmDto) {
+		List<QuestionMstDTO> qmList = surveyDao.qmList(qmDto);
+		return qmList;
+	}
+	@Override
+	public List<QuestionHisDTO> detailQuestion(QuestionHisDTO qhDto) {
+		List<QuestionHisDTO> detailQuestion = surveyDao.detailQuestion(qhDto);
+		return detailQuestion;
 	}
 }

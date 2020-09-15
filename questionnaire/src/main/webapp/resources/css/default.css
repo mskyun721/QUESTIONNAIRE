@@ -132,16 +132,7 @@ ul, li{list-style: none;margin: 0px; padding: 0px;}
 }
 /* sidebar */
 
-#content{
-	width: 84%;
-	float: left;
-}
-#title{
-	margin-left: 100px;
-	margin-top: 30px;
-}
 
-#row1{padding: 5px; float: left;}
 .searchBox{
 	width: 100%;
 	background-color: #ebeef3;
