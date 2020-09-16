@@ -53,8 +53,14 @@ public class SurveyServiceImpl implements SurveyService {
 		return qmList;
 	}
 	@Override
+	public int qmCount(QuestionMstDTO qmDto) {
+		int qmCount = surveyDao.qmCount(qmDto);
+		return qmCount;
+	}
+	@Override
 	public List<QuestionHisDTO> detailQuestion(QuestionHisDTO qhDto) {
 		List<QuestionHisDTO> detailQuestion = surveyDao.detailQuestion(qhDto);
 		return detailQuestion;
 	}
+	
 }

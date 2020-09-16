@@ -19,4 +19,7 @@ public interface SurveyService {
 
 	List<QuestionHisDTO> detailQuestion(QuestionHisDTO qhDto);
 
+	int qmCount(QuestionMstDTO qmDto);
+
+
 }

@@ -1,6 +1,7 @@
 package com.report.service;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -28,6 +29,7 @@ public interface MainService {
 	QuestionInfoDTO questionOne(QuestionInfoDTO qiDto);
 	void insertQuestion(QuestionInfoDTO qiDto);
 	void delQuestion(QuestionInfoDTO qiDto);
+	Map<String, Object> chartDate();
 	
 	
 	

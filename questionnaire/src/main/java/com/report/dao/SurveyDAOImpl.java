@@ -30,6 +30,11 @@ public class SurveyDAOImpl implements SurveyDAO {
 		return qmList;
 	}
 	@Override
+	public int qmCount(QuestionMstDTO qmDto) {
+		int qmCount = sqlSession.selectOne(Namespace+".qmCount",qmDto);
+		return qmCount;
+	}
+	@Override
 	public List<QuestionHisDTO> detailQuestion(QuestionHisDTO qhDto) {
 		List<QuestionHisDTO> detailQuestion = sqlSession.selectList(Namespace+".detailQuestion", qhDto);
 		return detailQuestion;

@@ -3,6 +3,7 @@ package com.report.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletResponse;
@@ -14,9 +15,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.report.dto.QuestionInfoDTO;
+import com.report.dto.QuestionMstDTO;
 import com.report.dto.UntMstInfoDTO;
 import com.report.dto.UserInfoDTO;
 import com.report.service.MainService;
+import com.report.service.SurveyService;
 
 
 @Controller
@@ -24,6 +27,8 @@ public class MainController {
 	
 	@Inject
 	MainService mainService;
+	@Inject
+	SurveyService SurveyService;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String login(Model model,UserInfoDTO uiDto) {
@@ -67,6 +72,26 @@ public class MainController {
 		}else {
 			String userID = (String)session.getAttribute("userID");
 			String userNM = (String)session.getAttribute("userNM");
+			Map<String,Object> chartDateMap=mainService.chartDate();
+			int qmCount = 0;
+			QuestionMstDTO qmDto = new QuestionMstDTO();
+			String[] arrDate = (String[]) chartDateMap.get("arrDate");
+			int[] arrCount=new int[arrDate.length];
+			
+			if(userID.equals("sunsoft")) {
+				qmDto.setUSERID(userID);
+			}else {
+				qmDto.setUNTCD(session.getAttribute("untcd").toString());
+			}
+			
+			for (int i = 0; i < arrDate.length; i++) {
+				qmDto.setQUEDATE(arrDate[i]);
+				qmCount=SurveyService.qmCount(qmDto);
+				arrCount[i]=qmCount;
+			}
+			
+			model.addAttribute("arrCount",arrCount);
+			model.addAttribute("date",chartDateMap.get("arrDate"));
 			model.addAttribute("userID", userID);
 			model.addAttribute("userNM", userNM);
 			path = "Main";

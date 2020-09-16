@@ -39,6 +39,7 @@ header nav>ul>li>ul>li>a {font-size:13px;}
   display: table;
   clear: both;
   width: 90%;
+  min-height:60em;
   margin:auto;
   background:#FFF;
   padding-top:10px;

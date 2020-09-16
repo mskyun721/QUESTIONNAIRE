@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.report.dto.QuestionHisDTO;
 import com.report.dto.QuestionInfoDTO;
 import com.report.dto.QuestionMstDTO;
 import com.report.service.MainService;
@@ -52,8 +53,13 @@ public class SurveyController {
 	}
 	
 	@RequestMapping(value = "/survey/queResult", method = RequestMethod.GET)
-	public String queResult(Model model,QuestionMstDTO qmDto,HttpSession session) {
+	public String queResult(Model model,QuestionMstDTO qmDto,HttpSession session,QuestionHisDTO qhDto) {
+		String path="";
+		if(session.getAttribute("userID") == null) {
+			path="redirect:/";
+		}else {
 		Map<String, Object> map = surveyService.queDate();
+		List<QuestionHisDTO> qhList = null;
 		String sessionID = session.getAttribute("userID").toString();
 		if(sessionID.equals("sunsoft")) {
 			qmDto.setUSERID(sessionID);
@@ -65,11 +71,17 @@ public class SurveyController {
 			qmDto.setLTDATE(map.get("date").toString());
 		}
 		List<QuestionMstDTO> qmList = surveyService.qmList(qmDto);
+		if (qhDto.getUNTCD() != null && qhDto.getQUEDATE() != null && qhDto.getQUEHPNO() != null) {
+			qhList = surveyService.detailQuestion(qhDto);
+		}
 		
+		model.addAttribute("qhList",qhList);
 		model.addAttribute("qmList",qmList);
 		model.addAttribute("stdate",map.get("firstDate"));
 		model.addAttribute("ltdate",map.get("date"));
-		return "survey/queResult";
+		path = "survey/queResult";
+		}
+		return path;
 	}
 	
 	

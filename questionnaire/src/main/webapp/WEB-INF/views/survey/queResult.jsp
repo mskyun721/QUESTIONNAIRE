@@ -23,7 +23,12 @@ $(document).ready(function() {
 		var untcd = $('#untcd'+num).val();
 		var quedate = $('#quedate'+num).val();
 		var quehpno = $('#quehpno'+num).val();
-		$.ajax({
+		var untnm = $('#UNTNM').val();
+		var stdate = $('#STDATE').val();
+		var ltdate = $('#LTDATE').val();
+		location.href="/question/survey/queResult?UNTNM="+untnm+"&STDATE="+stdate+"&LTDATE="+ltdate+"&UNTCD="+untcd+"&QUEDATE="+quedate+"&QUEHPNO="+quehpno;
+		
+		/* $.ajax({
 			url:"detailQuestion",
 			type:"get",
 			data:{UNTCD:untcd,QUEDATE:quedate,QUEHPNO:quehpno},
@@ -32,7 +37,7 @@ $(document).ready(function() {
 					alert(rdata[i].QUEHISSEQ);
 				};
 			}
-		});
+		}); */
 		
 	});
 
@@ -46,19 +51,21 @@ $(document).ready(function() {
 <!-- header -->
 <div class="row">
 	<div style="float: left; width: 55%">
-		<div class="card">
+		<div class="card" >
 			<h3><i class="fas fa-caret-right"></i>설문 현황</h3>
 			<hr />
 			<div class="searchBox">
+			<form action="">
 				<div style="display: inline;">
 					&nbsp;&nbsp;<span>사업장명</span>&nbsp;&nbsp;
-					<input type="text" size="10" name="UNTNM" id="UNTNM">
+					<input type="text" size="10" name="UNTNM" id="UNTNM" value="${param.UNTNM }"><button type="submit" >&nbsp;&nbsp;<i class="fas fa-search"></i>&nbsp;Sch</button>
 				</div>
 				<div style="display: inline; margin-left: 10em;">
 					<span>검색기간</span>&nbsp;&nbsp;
 					<input type="date" id="STDATE" name="STDATE" value="${stdate }"><span>&nbsp;&nbsp;~&nbsp;&nbsp;</span>
 					<input type="date" id="LTDATE" name="LTDATE" value="${ltdate }">
 				</div>
+			</form>
 			</div>
 			<div>
 				<table class="table100">
@@ -89,6 +96,17 @@ $(document).ready(function() {
 		<div class="card">
 			<h3><i class="fas fa-caret-right"></i>세부 설문 내역</h3>
 			<hr />
+				<c:if test="${qhList != null }">
+					<c:forEach items="${qhList}" var="list" varStatus="i">
+						<div class="card">
+							<span>${list.QUEHISSEQ }.</span>&nbsp;&nbsp;<span>${list.QUECONT }</span><br>
+							<c:if test="${list.QUEINTYPE == '0' }"><span>답변 : 예</span></c:if>
+							<c:if test="${list.QUEINTYPE == '1' }"><span>답변 : 아니요</span></c:if>
+							<c:if test="${list.QUEREMARK != ' '}"><pre style="display: inline; margin-left: 5em;">${list.QUEREMARK }</pre></c:if>
+						</div>
+						
+					</c:forEach>
+				</c:if>
 		</div>
 	</div>
 </div>

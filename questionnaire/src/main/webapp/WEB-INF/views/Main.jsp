@@ -13,6 +13,7 @@
 <link href="resources/font/fontawesome/css/all.css" rel="stylesheet" type="text/css">
 <script src="resources/script/jquery.1.12.0.min.js"></script>
 <script src="resources/script/script.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
 $(function(){
 	$('.btn_menu').click(function(){
@@ -33,13 +34,55 @@ $(function(){
 	});
 });
 </script>
+<script type="text/javascript">
+$(document).ready(function() {
+	var arrDate = new Array();
+	var arrCount = new Array();
+	var arrChart = new Array();
+	<c:forEach items="${date}" var="d">
+		arrDate.push("${d}");
+	</c:forEach>
+	<c:forEach items="${arrCount}" var="c">
+		arrCount.push("${c}");
+	</c:forEach>
+	
+	for (var i = 0; i < arrDate.length; i++) {
+		arrChart[i]=[arrDate[i],arrCount[i]];
+	}
+	google.charts.load('current', {packages: ['corechart', 'bar']});
+	google.charts.setOnLoadCallback(drawBasic);
+	
+	function drawBasic() {
+		var data = new google.visualization.DataTable();
+		data.addColumn('string', '방문일');
+		data.addColumn('number', '방문자수(명)');
+		 
+		data.addRows(arrDate.length);
+		for (var i = 0; i < arrDate.length; i++) {
+			data.setCell(i,0,arrDate[i]);
+			data.setCell(i,1,arrCount[i]);
+		}
+		
+		var options = {
+        		chartArea : {width: '75%',	height: '80%'},
+          hAxis: {
+        	title: '방문일',
+        	gridlines: {count:5},
+          },
+          vAxis: {
+        	
+          }
+        };
+		
+		var chart = new google.visualization.ColumnChart(
+		document.getElementById('chart_div'));
+		chart.draw(data, options);
+	
+	}
+});
+</script>
 </head>
 <body>
-
-
-<script>
-	
-</script>
 <!-- header -->
 <jsp:include page="public/header.jsp"/>
 <!-- header -->
@@ -48,9 +91,9 @@ $(function(){
 <div class="row">
   <div>
     <div class="card">
-      <h3><i class="fas fa-caret-right"></i> 매장별 검침등록</h3>
+      <h3><i class="fas fa-caret-right"></i>월별 방문자 현황</h3>
       <hr />
-      <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+      <div id="chart_div" style="height: 500px;"></div>
       </div>
    </div>
   </div>

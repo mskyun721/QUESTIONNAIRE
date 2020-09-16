@@ -43,8 +43,6 @@ $(document).ready(function() {
 				}else{
 					strBuffRemark += remark+"/";
 				}
-				
-				alert(strBuffRemark);
 				allCheck=true;
 			}
 			

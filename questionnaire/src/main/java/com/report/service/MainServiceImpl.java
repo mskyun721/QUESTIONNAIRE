@@ -1,6 +1,9 @@
 package com.report.service;
 
+import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
@@ -16,6 +19,7 @@ import com.report.dto.UserInfoDTO;
 public class MainServiceImpl implements MainService {
 	@Inject
 	MainDAO mainDao;
+	Calendar cal = Calendar.getInstance();
 
 	@Override
 	public boolean loginCheck(UserInfoDTO uiDto,HttpSession session) {
@@ -55,6 +59,28 @@ public class MainServiceImpl implements MainService {
 	@Override
 	public void delUser(UserInfoDTO uiDto) {
 		mainDao.delUser(uiDto);
+	}
+	@Override
+	public Map<String, Object> chartDate() {
+		Map<String, Object> returnMap = new HashMap<String, Object>();
+		int year,month,day = 0;
+		String strMonth, strDay = "";
+		String date="";
+		String[] arrDate = new String[cal.getMaximum(Calendar.DAY_OF_MONTH)];
+		for (int i = 0; i < cal.getMaximum(Calendar.DAY_OF_MONTH); i++) {
+			year=cal.get(Calendar.YEAR);
+			month=cal.get(Calendar.MONTH)+1;
+			day=i+1;
+			if (month<10) {strMonth = "0"+month;}else {strMonth=month+"";}
+			if (day<10) {strDay = "0"+day;}else {strDay=day+"";}
+			date = year+"-"+strMonth+"-"+strDay;
+			arrDate[i]=date;
+			
+		}
+		
+		returnMap.put("arrDate", arrDate);
+		
+		return returnMap;
 	}
 	
 	

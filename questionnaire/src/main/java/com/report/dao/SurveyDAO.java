@@ -15,4 +15,7 @@ public interface SurveyDAO {
 
 	List<QuestionHisDTO> detailQuestion(QuestionHisDTO qhDto);
 
+	int qmCount(QuestionMstDTO qmDto);
+
+
 }
