@@ -8,7 +8,7 @@
 		{call SP_GET_TBUSERINFO_LOGIN(#{USERID},#{USERPW})}
 	</select>
 	<select id="userList" resultType="uiDto">
-		{call SP_GET_TBUSERINFO(#{UNTCD},#{DPTNM},#{EMPNM},#{USERID})}
+		{call SP_GET_TBUSERINFO(#{UNTCD},#{condition},#{value},#{USERID},#{DPTNM},#{EMPNM})}
 	</select>
 	<select id="dptList" resultType="uiDto">
 		{call SP_GET_TBUSERINFO_DPTNM(#{UNTCD})}

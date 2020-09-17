@@ -66,10 +66,11 @@ public class MainServiceImpl implements MainService {
 		int year,month,day = 0;
 		String strMonth, strDay = "";
 		String date="";
+		year=cal.get(Calendar.YEAR);
+		month=cal.get(Calendar.MONTH)+1;
 		String[] arrDate = new String[cal.getMaximum(Calendar.DAY_OF_MONTH)];
-		for (int i = 0; i < cal.getMaximum(Calendar.DAY_OF_MONTH); i++) {
-			year=cal.get(Calendar.YEAR);
-			month=cal.get(Calendar.MONTH)+1;
+		for (int i = 0; i < cal.getActualMaximum(Calendar.DAY_OF_MONTH); i++) {
+			
 			day=i+1;
 			if (month<10) {strMonth = "0"+month;}else {strMonth=month+"";}
 			if (day<10) {strDay = "0"+day;}else {strDay=day+"";}

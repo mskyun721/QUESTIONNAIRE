@@ -5,15 +5,19 @@
 <head>
 <meta charset="UTF-8">
 <title>거래처 등록</title>
+<link type="text/css" href="resources/style/default.css" rel="stylesheet">
+<link type="text/css" href="resources/style/common.css" rel="stylesheet">
+<link type="text/css" href="resources/style/layout.css" rel="stylesheet">
+<link type="text/css" href="resources/style/design.css" rel="stylesheet">
 <link href="resources/css/default.css" rel="stylesheet" type="text/css">
 <link href="resources/css/table.css" rel="stylesheet" type="text/css">
+<link href="resources/font/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+<div class="popUpCard">
 <div>
-	<div class="marginLeft_30 floatLeft"><h3>사업장 등록</h3></div>
+	<h3 style="text-align: center;">사업장 등록</h3><br>
 </div>
-<div class="clear"></div>
-<div class="marginLeft_20">
 	<form action="insertCst" method="post" class="subPageForm">
 		<div class="formRow">
 			<div class="floatLeft">
@@ -77,8 +81,8 @@
 			<textarea rows="5" cols="60" name="REMARK">${mstOne.REMARK }</textarea>
 		</div>
 		<div class="buttonBox">
-		<button type="submit" id="">저장</button>&nbsp;
-		<button type="button" onclick="window.close(); return false;">취소</button>&nbsp;
+		<button type="submit" id=""><i class="fas fa-save" style="font-size:15px;">&nbsp;</i>저장</button>&nbsp;
+		<button type="button" onclick="window.close(); return false;"><i class="fas fa-window-close" style="font-size:15px;"></i>&nbsp;취소</button>&nbsp;
 		</div>
 	</form>
 </div>

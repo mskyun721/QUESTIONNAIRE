@@ -107,14 +107,15 @@ public class MainController {
 			path="redirect:/";
 		}else {
 		List<UserInfoDTO> userList;
+		
 		uiDto.setUNTCD(session.getAttribute("untcd").toString());
 		uiDto.setUSERID(session.getAttribute("userID").toString());
 		userList=mainService.userList(uiDto);
 		
-		//List<UserInfoDTO> dptList = mainService.dptList(uiDto);
+		List<UserInfoDTO> dptList = mainService.dptList(uiDto);
 		
 		model.addAttribute("userList",userList);
-		//model.addAttribute("dptList",dptList);
+		model.addAttribute("dptList",dptList);
 		path="addUser";
 		}
 		return path;

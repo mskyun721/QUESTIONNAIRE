@@ -52,30 +52,37 @@ $(document).ready(function() {
 	google.charts.load('current', {packages: ['corechart', 'bar']});
 	google.charts.setOnLoadCallback(drawBasic);
 	
+	
+	
 	function drawBasic() {
 		var data = new google.visualization.DataTable();
-		data.addColumn('string', '방문일');
+		data.addColumn('date', '방문일');
 		data.addColumn('number', '방문자수(명)');
 		 
 		data.addRows(arrDate.length);
 		for (var i = 0; i < arrDate.length; i++) {
-			data.setCell(i,0,arrDate[i]);
+			data.setCell(i,0,new Date(arrDate[i]));
 			data.setCell(i,1,arrCount[i]);
 		}
 		
+		
+		
 		var options = {
-        		chartArea : {width: '75%',	height: '80%'},
-          hAxis: {
-        	title: '방문일',
-        	gridlines: {count:5},
-          },
-          vAxis: {
-        	
-          }
+        	chartArea : {width: '80%',	height: '80%'},
+        	legend:{position:'top'},
+        	hAxis: {
+                format: 'MM/dd',
+                gridlines: {count:10}
+              },
         };
 		
-		var chart = new google.visualization.ColumnChart(
-		document.getElementById('chart_div'));
+		var DateFormatter = new google.visualization.DateFormat({ 
+	        pattern: "yy-MM-d" 
+		}); 
+		DateFormatter.format(data, 1);
+		
+		
+		var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
 		chart.draw(data, options);
 	
 	}

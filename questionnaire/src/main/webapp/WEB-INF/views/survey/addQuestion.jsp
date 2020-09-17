@@ -42,6 +42,21 @@ $(document).ready(function() {
 		
 	});
 	
+	var popUpX = (window.screen.width/2)-400;
+	var popUpY = (window.screen.height/2)-250;
+	$('#add').click(function(){
+		window.open('questionForm','_blank','width=520, height=250, left='+popUpX+', top='+popUpY);
+	});
+	
+	$("[id^=edit]").click(function(){
+		var id = $(this).attr("id");
+		var num = id.replace("edit","");
+		var untcd = $('#UNTCDRow'+num).val();
+		var queseq = $('#QUESEQRow'+num).val();
+		
+		window.open('questionForm?UNTCD='+untcd+'&QUESEQ='+queseq,'_blank','width=580, height=250, left='+popUpX+', top='+popUpY);
+	});
+	
 	
 });
 </script>
@@ -56,8 +71,10 @@ $(document).ready(function() {
 			<h3><i class="fas fa-caret-right"></i>설문 등록</h3>
 			<hr />
 			<div class="searchBox">
+			<form >
 				<span>사업장명</span>&nbsp;&nbsp;
-				<input type="text" size="10" name="UNTNM" id="UNTNM">
+				&nbsp;<input type="text" size="10" name="UNTNM" id="UNTNM" value="${param.UNTNM }">
+				<button type="submit" ><i class="fas fa-search"></i>&nbsp;Sch</button>
 				<div style="display: inline; margin-left: 10em;">
 					&nbsp;&nbsp;<p style="display: inline;">사용구분</p>&nbsp;&nbsp;
 					<c:choose>
@@ -81,12 +98,13 @@ $(document).ready(function() {
 					</c:otherwise>
 				</c:choose>
 				</div>
+			</form>
 			</div>
 			<div>
 				<form method="post" action="searchUser">
 				<table class="table100">
 					<thead class="tableSection">
-						<tr><th style="width: 5%"><button type="button" onclick="window.open('questionForm','_blank','width=520, height=300'); return false" style="background-color: #1467b3;color: white;"><i class="fas fa-plus-square"></i>&nbsp;Add</button></th>
+						<tr><th style="width: 5%"><button type="button" id="add" style="background-color: #1467b3;color: white;"><i class="fas fa-plus-square"></i>&nbsp;Add</button></th>
 							<c:if test="${sessionScope.userID == 'sunsoft' }"><th>사업장</th></c:if>
 							<th style="width: 5%">질문번호</th>
 							<th style="width: 50%">질문내용</th>
@@ -103,7 +121,7 @@ $(document).ready(function() {
 					</thead>
 					<tbody>
 					<c:forEach items="${questionList }" var="list" varStatus="i">
-						<tr><td width="30"><button type="button" onclick="window.open('questionForm?UNTCD=${list.UNTCD}&QUESEQ=${list.QUESEQ}','_blank','width=520, height=300'); return false"><i class="fas fa-edit"></i>&nbsp;Edit</button></td>
+						<tr><td width="30"><button type="button" id="edit${i.index }"><i class="fas fa-edit"></i>&nbsp;Edit</button></td>
 						<c:if test="${sessionScope.userID == 'sunsoft' }"><td>${list.UNTNM }</td></c:if>
 						<td>${list.QUENO }</td>
 						<td style="text-align: left;">${list.QUECONT }</td>

@@ -37,11 +37,11 @@ $(document).ready(function() {
 	var conditionParam = $('#conditionParam').val();
 	$('#condition').val(conditionParam).attr("selected");
 	
+	
+	var popUpX = (window.screen.width/2)-400;
+	var popUpY = (window.screen.height/2)-250;
 	$('#add').click(function(){
-		var popUpX = (window.screen.width/2)-400;
-		var popUpY = (window.screen.height/2)-250;
-		
-		window.open('corpManageForm','_blank','width=580, height=390, left='+popUpX+', top='+popUpY);
+		window.open('corpManageForm','_blank','width=580, height=435, left='+popUpX+', top='+popUpY);
 	});
 	
 	$("[id^=edit]").click(function(){
@@ -49,10 +49,7 @@ $(document).ready(function() {
 		var num = id.replace("edit","");
 		var result = $('#delRow'+num).val();
 		
-		var popUpX = (window.screen.width/2)-400;
-		var popUpY = (window.screen.height/2)-250;
-		
-		window.open('corpManageForm?UNTCD='+result,'_blank','width=580, height=390, left='+popUpX+', top='+popUpY);
+		window.open('corpManageForm?UNTCD='+result,'_blank','width=580, height=435, left='+popUpX+', top='+popUpY);
 	});
 	
 	$("[id^=QrCode]").click(function(){

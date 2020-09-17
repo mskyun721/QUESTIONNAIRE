@@ -6,16 +6,19 @@
 <head>
 <meta charset="UTF-8">
 <title>사용자 등록</title>
+<link type="text/css" href="resources/style/default.css" rel="stylesheet">
+<link type="text/css" href="resources/style/common.css" rel="stylesheet">
+<link type="text/css" href="resources/style/layout.css" rel="stylesheet">
+<link type="text/css" href="resources/style/design.css" rel="stylesheet">
 <link href="resources/css/default.css" rel="stylesheet" type="text/css">
 <link href="resources/css/table.css" rel="stylesheet" type="text/css">
 <link href="resources/font/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<div>
-	<div class="marginLeft_30 floatLeft"><h3>사용자 등록</h3></div>
-</div>
-<div class="clear"></div>
-<div class="marginLeft_20">
+<div class="popUpCard">
+	<div>
+		<h3 style="text-align: center;">사용자 등록</h3><br>
+	</div>
 	<form action="insertUser" method="post" class="subPageForm">
 		<c:if test="${sessionScope.userID == 'sunsoft' }">
 			<div class="formRow">
