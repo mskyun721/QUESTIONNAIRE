@@ -54,6 +54,7 @@ $(document).ready(function() {
 				data:{QUEINTYPE:strBuffType,UNTCD:untcd,QUEHPNO:hpno,QUEREMARK:strBuffRemark},
 				success:function(rdata){
 					alert("설문조사 완료되었습니다.");
+					window.opener.location.reload();
 					window.close();
 				}
 			});

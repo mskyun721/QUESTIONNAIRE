@@ -26,19 +26,35 @@ $(document).ready(function() {
 		var untnm = $('#UNTNM').val();
 		var stdate = $('#STDATE').val();
 		var ltdate = $('#LTDATE').val();
+		
 		location.href="/question/survey/queResult?UNTNM="+untnm+"&STDATE="+stdate+"&LTDATE="+ltdate+"&UNTCD="+untcd+"&QUEDATE="+quedate+"&QUEHPNO="+quehpno;
+
+	});
+	
+	$('#STDATE').change(function(){
+		var untnm = $('#UNTNM').val();
+		var queempnm = $('#QUEEMPNM').val();
+		var stdate = $('#STDATE').val();
+		var ltdate = $('#LTDATE').val();
+		if (untnm !=null) {
+			location.href="/question/survey/queResult?UNTNM="+untnm+"&STDATE="+stdate+"&LTDATE="+ltdate;
+		}else if(queempnm != null){
+			location.href="/question/survey/queResult?QUEEMPNM="+queempnm+"&STDATE="+stdate+"&LTDATE="+ltdate;	
+		}
 		
-		/* $.ajax({
-			url:"detailQuestion",
-			type:"get",
-			data:{UNTCD:untcd,QUEDATE:quedate,QUEHPNO:quehpno},
-			success:function(rdata){
-				for(var i=0 in rdata){
-					alert(rdata[i].QUEHISSEQ);
-				};
-			}
-		}); */
+	});
+	
+	$('#LTDATE').change(function(){
+		var untnm = $('#UNTNM').val();
+		var queempnm = $('#QUEEMPNM').val();
+		var stdate = $('#STDATE').val();
+		var ltdate = $('#LTDATE').val();
 		
+		if (untnm !=null) {
+			location.href="/question/survey/queResult?UNTNM="+untnm+"&STDATE="+stdate+"&LTDATE="+ltdate;
+		}else if(queempnm != null){
+			location.href="/question/survey/queResult?QUEEMPNM="+queempnm+"&STDATE="+stdate+"&LTDATE="+ltdate;	
+		}
 	});
 
 });
@@ -57,28 +73,38 @@ $(document).ready(function() {
 			<div class="searchBox">
 			<form action="">
 				<div style="display: inline;">
+				<c:if test="${sessionScope.userID == 'sunsoft' }">
 					&nbsp;&nbsp;<span>사업장명</span>&nbsp;&nbsp;
 					<input type="text" size="10" name="UNTNM" id="UNTNM" value="${param.UNTNM }"><button type="submit" >&nbsp;&nbsp;<i class="fas fa-search"></i>&nbsp;Sch</button>
+				</c:if>
+				<c:if test="${sessionScope.userID != 'sunsoft' }">
+					&nbsp;&nbsp;<span>방문자</span>&nbsp;&nbsp;
+					<input type="text" size="10" name="QUEEMPNM" id="QUEEMPNM" value="${param.QUEEMPNM }"><button type="submit" >&nbsp;&nbsp;<i class="fas fa-search"></i>&nbsp;Sch</button>
+				</c:if>
 				</div>
 				<div style="display: inline; margin-left: 10em;">
 					<span>검색기간</span>&nbsp;&nbsp;
-					<input type="date" id="STDATE" name="STDATE" value="${stdate }"><span>&nbsp;&nbsp;~&nbsp;&nbsp;</span>
-					<input type="date" id="LTDATE" name="LTDATE" value="${ltdate }">
+					<c:if test="${param.STDATE == null }"><input type="date" id="STDATE" name="STDATE" value="${stdate }"></c:if>
+					<c:if test="${param.STDATE != null }"><input type="date" id="STDATE" name="STDATE" value="${param.STDATE }"></c:if>
+					<span>&nbsp;&nbsp;~&nbsp;&nbsp;</span>
+					<c:if test="${param.LTDATE == null }"><input type="date" id="LTDATE" name="LTDATE" value="${ltdate }"></c:if>
+					<c:if test="${param.LTDATE != null }"><input type="date" id="LTDATE" name="LTDATE" value="${param.LTDATE }"></c:if>
+					
 				</div>
 			</form>
 			</div>
 			<div>
 				<table class="table100">
 					<thead>
-						<tr><th>방문 사업장</th>
-							<th>설문자</th>
+						<tr><c:if test="${sessionScope.userID == 'sunsoft' }"><th>방문사업장</th></c:if>
+							<th>방문자</th>
 							<th>연락처</th>
 							<th>온도</th>
 							<th>방문일</th>
 							<th>설문내역 보기</th></tr>
 					</thead>
 					<tbody><c:forEach items="${qmList }" var="list" varStatus="i">
-						<tr><td>${list.UNTNM }</td>
+						<tr><c:if test="${sessionScope.userID == 'sunsoft' }"><td>${list.UNTNM }</td></c:if>
 							<td>${list.QUEEMPNM }</td>
 							<td>${list.QUEHPNO }</td>
 							<td><fmt:formatNumber value="${list.TEMPERATURE }" pattern=".0"/>°C</td>
@@ -93,7 +119,7 @@ $(document).ready(function() {
 		</div><!-- card end -->
 	</div>
 	<div style="float: right; width: 45%">
-		<div class="card">
+		<div class="card" style="min-height: 30em;">
 			<h3><i class="fas fa-caret-right"></i>세부 설문 내역</h3>
 			<hr />
 				<c:if test="${qhList != null }">
@@ -110,5 +136,8 @@ $(document).ready(function() {
 		</div>
 	</div>
 </div>
+<!-- footer -->
+<jsp:include page="../public/footer.jsp"/>
+<!-- footer -->
 </body>
 </html>

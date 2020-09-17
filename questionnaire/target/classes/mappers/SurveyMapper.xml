@@ -13,7 +13,7 @@
 	
 	
 	<select id="qmList" resultType="qmDto">
-		{call SP_GET_TBQUESTIONMST(#{UNTNM},#{UNTCD},#{STDATE},#{LTDATE},#{USERID})}
+		{call SP_GET_TBQUESTIONMST(#{UNTNM},#{UNTCD},#{STDATE},#{LTDATE},#{USERID},#{QUEEMPNM})}
 	</select>
 	<select id="qmCount" resultType="int">
 		{call SP_GET_TBQUESTIONMST_CHART(#{UNTCD},#{QUEDATE},#{USERID},#{UNTNM})}

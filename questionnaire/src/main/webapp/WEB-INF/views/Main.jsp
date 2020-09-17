@@ -65,21 +65,19 @@ $(document).ready(function() {
 			data.setCell(i,1,arrCount[i]);
 		}
 		
-		
-		
 		var options = {
         	chartArea : {width: '80%',	height: '80%'},
         	legend:{position:'top'},
         	hAxis: {
                 format: 'MM/dd',
-                gridlines: {count:10}
+                gridlines: {count:10},
+                title: '방문일'
               },
+           vAxis:{
+        	   format: '#'
+           }
         };
 		
-		var DateFormatter = new google.visualization.DateFormat({ 
-	        pattern: "yy-MM-d" 
-		}); 
-		DateFormatter.format(data, 1);
 		
 		
 		var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));

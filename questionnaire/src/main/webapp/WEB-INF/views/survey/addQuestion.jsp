@@ -72,11 +72,15 @@ $(document).ready(function() {
 			<hr />
 			<div class="searchBox">
 			<form >
-				<span>사업장명</span>&nbsp;&nbsp;
-				&nbsp;<input type="text" size="10" name="UNTNM" id="UNTNM" value="${param.UNTNM }">
-				<button type="submit" ><i class="fas fa-search"></i>&nbsp;Sch</button>
-				<div style="display: inline; margin-left: 10em;">
-					&nbsp;&nbsp;<p style="display: inline;">사용구분</p>&nbsp;&nbsp;
+				<c:if test="${sessionScope.userID == 'sunsoft' }">
+					<span>사업장명</span>&nbsp;&nbsp;
+					&nbsp;<input type="text" size="10" name="UNTNM" id="UNTNM" value="${param.UNTNM }">
+					<button type="submit" ><i class="fas fa-search"></i>&nbsp;Sch</button>
+					&nbsp;&nbsp;<span style="margin-left: 10em;">사용구분</span>&nbsp;&nbsp;
+				</c:if>
+				<c:if test="${sessionScope.userID !='sunsoft' }">
+					&nbsp;&nbsp;<span>사용구분</span>&nbsp;&nbsp;
+				</c:if>
 					<c:choose>
 					<c:when test="${param.USETYPE == 'Y' }">
 						<select id="USETYPE" name="USETYPE" style="width: 50px;">
@@ -97,7 +101,6 @@ $(document).ready(function() {
 						</select>
 					</c:otherwise>
 				</c:choose>
-				</div>
 			</form>
 			</div>
 			<div>
@@ -138,5 +141,8 @@ $(document).ready(function() {
 		</div><!-- card end -->
 	</div>
 </div>
+<!-- footer -->
+<jsp:include page="../public/footer.jsp"/>
+<!-- footer -->
 </body>
 </html>
