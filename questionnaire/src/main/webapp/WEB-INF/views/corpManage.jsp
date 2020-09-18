@@ -14,66 +14,7 @@
 <link href="resources/css/table.css" rel="stylesheet" type="text/css">
 <link href="resources/font/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function() {
-	$("[id^=btnDel]").click(function () {
-		var confirmResult = confirm("삭제하시겠습니까?");
-		var id = $(this).attr("id");
-		var num = id.replace("btnDel","");
-		var result = $('#delRow'+num).val();
-		if (confirmResult) {
-			$.ajax({
-				url:"delMst",
-				type:"get",
-				data:{UNTCD:result},
-				success:function(data){
-					location.reload();
-				}
-			});
-		}
-		
-	});
-	
-	var conditionParam = $('#conditionParam').val();
-	$('#condition').val(conditionParam).attr("selected");
-	
-	
-	var popUpX = (window.screen.width/2)-400;
-	var popUpY = (window.screen.height/2)-250;
-	$('#add').click(function(){
-		window.open('corpManageForm','_blank','width=580, height=435, left='+popUpX+', top='+popUpY);
-	});
-	
-	$("[id^=edit]").click(function(){
-		var id = $(this).attr("id");
-		var num = id.replace("edit","");
-		var result = $('#delRow'+num).val();
-		
-		window.open('corpManageForm?UNTCD='+result,'_blank','width=580, height=435, left='+popUpX+', top='+popUpY);
-	});
-	
-	$("[id^=QrCode]").click(function(){
-		var id = $(this).attr("id");
-		var num = id.replace("QrCode","");
-		var result = $('#delRow'+num).val();
-		var strUrl = "QrCode/"+result;
-		$.ajax({
-			url:strUrl,
-			type:"get",
-			data:{untcd:result},
-			success:function(data){
-				window.open('QRCodePrintForm?Url='+strUrl, 'Print', 'Width=700, height=1000');
-				
-			},
-			error:function(data){
-				alert("error");
-			}
-		});
-		
-	});
-	
-});
-</script>
+<script type="text/javascript" src="resources/script/corpManage.js"></script>
 </head>
 <body>
 <div class="printNone">
@@ -121,20 +62,6 @@ $(document).ready(function() {
 						<th style="width: 10%">비고</th>
 						<th style="width: 5%">QR출력</th>
 						<th style="width: 3%"></th></tr>
-					<!-- <tr><td></td>
-						<td><input type="text" readonly="readonly"></td>
-						<td><input type="text" name="UNTNM" id="UNTNM"></td>
-						<td><input type="text" name="UNTCEO" id="UNTCEO"></td>
-						<td><input type="text" name="BIZNO" id="BIZNO"></td>
-						<td><input type="text" name="BIZITEM" id="BIZITEM"></td>
-						<td><input type="text" name="BIZKIND" id="BIZKIND"></td>
-						<td><input type="text" name="TELNO" id="TELNO"></td>
-						<td><input type="text" name="FAXNO" id="FAXNO"></td>
-						<td><input type="text" name="ZIPNO" id="ZIPNO"></td>
-						<td><input type="text" name="ADDR" id="ADDR"></td>
-						<tD><input type="text" name="REMARK" id="REMARK"></td>
-						<td></td>
-						</tr> -->
 				</thead>
 					<tbody>
 						<c:forEach items="${corpList }" var="list" varStatus="i">
