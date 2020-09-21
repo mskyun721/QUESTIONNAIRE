@@ -19,7 +19,6 @@ $(document).ready(function() {
 	
 	$('#USETYPE').change(function(){
 		var USETYPE = $(this).val();
-		var Type = $('#orderType').val();
 		location.href="/question/survey/addQuestion?USETYPE="+USETYPE;
 	});
 	
