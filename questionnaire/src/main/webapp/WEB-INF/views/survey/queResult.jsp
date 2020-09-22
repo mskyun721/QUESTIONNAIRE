@@ -24,10 +24,16 @@ $(document).ready(function() {
 		var quedate = $('#quedate'+num).val();
 		var quehpno = $('#quehpno'+num).val();
 		var untnm = $('#UNTNM').val();
+		var queempnm = $('#QUEEMPNM').val();
 		var stdate = $('#STDATE').val();
 		var ltdate = $('#LTDATE').val();
 		
-		location.href="/question/survey/queResult?UNTNM="+untnm+"&STDATE="+stdate+"&LTDATE="+ltdate+"&UNTCD="+untcd+"&QUEDATE="+quedate+"&QUEHPNO="+quehpno;
+		if (untnm !=null) {
+			location.href="/question/survey/queResult?UNTNM="+untnm+"&STDATE="+stdate+"&LTDATE="+ltdate+"&UNTCD="+untcd+"&QUEDATE="+quedate+"&QUEHPNO="+quehpno;
+		}else if(queempnm != null){
+			location.href="/question/survey/queResult?QUEEMPNM="+queempnm+"&STDATE="+stdate+"&LTDATE="+ltdate+"&UNTCD="+untcd+"&QUEDATE="+quedate+"&QUEHPNO="+quehpno;	
+		}
+		
 
 	});
 	

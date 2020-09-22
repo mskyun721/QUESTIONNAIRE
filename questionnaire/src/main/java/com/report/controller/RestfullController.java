@@ -62,7 +62,6 @@ public class RestfullController {
 			
 			qhDto.setQUEINTYPE(arrQueinType[i]);
 			qhDto.setQUEREMARK(arrQueremark[i]);
-			
 			qhDto.setQUEHISSEQ(questionList.get(i).getQUENO());
 			qhDto.setQUECONT(questionList.get(i).getQUECONT());
 			qhDto.setQUEDATE(dateMap.get("date").toString());
