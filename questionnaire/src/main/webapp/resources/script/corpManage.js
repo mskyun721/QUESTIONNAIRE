@@ -45,7 +45,7 @@ $(document).ready(function() {
 			type:"get",
 			data:{untcd:result},
 			success:function(data){
-				window.open('QRCodePrintForm?Url='+strUrl, 'Print', 'Width=700, height=1000');
+				window.open('QRCodePrintForm?Url='+strUrl, 'Print', 'width=700, height=800');
 				
 			},
 			error:function(data){
