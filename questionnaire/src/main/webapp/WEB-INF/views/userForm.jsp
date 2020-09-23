@@ -42,7 +42,7 @@
 			<div class="floatLeft width200">
 				<div class="floatLeft">
 					<div class="lbWidth"><label for="USERPW">Password</label></div>
-					<input type="text" size="10" name="USERPW" required="required" value="${userOne.USERPW }">
+					<input type="password" size="10" name="USERPW" required="required" value="${userOne.USERPW }">
 				</div>
 			</div>
 		</div>
