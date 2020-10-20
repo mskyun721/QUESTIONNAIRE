@@ -8,15 +8,15 @@ body {background:#fff; font-family: NotoSansCJKkr-Regular; font-size: 1.2rem }
 .inner{width: 1280px; margin: 0 auto}
 header {}
 header .wrap { margin:0 auto; position: relative; }
-header .top {position: relative; width: 90%; margin: 0 auto;padding:12px 0;}
+header .top {position: relative; width: 1280px; margin: 0 auto;padding:12px 0;}
 header .top>h1{width: 33.3% ;display:inline-block; }
 .top>h2 {width: 33.3% ;display:inline-block; text-align: center; font-size: 2.5rem; color: #236ac9;  }
 header .top .btn_logout {display:inline-block; border:1px solid #ddd; padding:5px 10px; position: absolute; right:10px; top:20px; border-radius: 0.5rem}
 header .top .btn_menu {width:35px; height:35px; display:none; border:1px solid #ddd; position: absolute;top:10px; padding:5px;}
 header nav {border-bottom:0px solid #eee;  
-    background-image: linear-gradient(to right, #7f75e1 , #a8a0f9);width: 90%;margin: 10px auto 0;
+    background-image: linear-gradient(to right, #7f75e1 , #a8a0f9);width: 1280px;margin: 10px auto 0;
 border-radius:10px 10px 0 0 }
-header nav>ul {font-size:0; text-align:left; width:100%; margin: 0 auto}
+header nav>ul {font-size:0; text-align:left; width: 1280px; margin: 0 auto}
 header nav>ul>li {display:inline-block; vertical-align: top; padding:0px 12px;  position: relative; }
 header nav>ul>li>a {font-size:1.5rem; color:#fff !important;  padding:5px 20px; display:block; }
 header nav>ul>li>a:hover{/*background-color: #569ed9;*/text-shadow: 0px 0px 10px rgba(0,0,0,0.6)}
@@ -34,15 +34,23 @@ header nav>ul>li>ul:hover {display:block;}
 header nav>ul>li>ul>li {padding:5px;}
 header nav>ul>li>ul>li>a {font-size:1.4rem;}
 
-
+.btn {
+            border:1px solid #;
+            color: white;
+            padding: 15px 0px;
+            font-size: 1.8rem;
+            display:block;
+            border-radius: 5px;
+            margin: 30px auto;
+            font-weight: bold;
+        }
 
 .row {
-  width: 90%;
-  margin:0px auto 20px;
+  width: 1280px;
+  margin:0px auto 10px;
   background:#FFF;
-  height: auto;
-  
-    box-shadow: 0px 3px 5px  rgba(0, 0, 0, 0.1)
+  padding-top:10px;
+    box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.1)
 }
 .row:after {clear: both; content: "";display: inline-block
 }
@@ -67,14 +75,14 @@ header nav>ul>li>ul>li>a {font-size:1.4rem;}
   border-collapse: collapse;
   width: 100%;
   margin: 10px auto 0;
- font-size: 1.3rem;
+ font-size: 1.4rem;
     
   
 }
 
 .rightcolumn>table th,.rightcolumn>table td {
   text-align: center;
-  padding: 5px 3px;
+  padding: 5px;
   border-bottom:1px solid #eee
 }
 
@@ -98,39 +106,37 @@ header nav>ul>li>ul>li>a {font-size:1.4rem;}
   border-radius: 3px;  
   padding:7px;  
   background-color: #e9e9e9;
-    width: 99%; 
-    margin: 10px auto;
+    width: 99%; margin: 0 auto;
 }
 .Search_set>select {
   padding:5px;  
- font-size: 1.3rem;
+ font-size: 1.4rem;
   border-radius: 3px;  
     width: 10rem;
-  
-}
-.Search_set>input[type=text] {
-  padding:5px;  
- font-size: 1.3rem;
-  border-radius: 3px;  
+    height: 30px;
+    border: 1px solid #dedede;
   
 }
 
-.bt_search {
+.Search_set>input[type=text] {
+  padding:0px;  
+ font-size: 1.3rem;
+ width: 30rem;
+  border-radius: 3px;    
+}
+
+.Search_set>.bt_search {
   padding: 5px 10px;
   border: none;
-    background-color: #fff;
-    border-radius: 3px;
+  cursor: pointer;
+    font-size: 1.8rem;
+    background-color: inherit
 }
-    
-
-    
-
-
-.fa-search{ font-size: 1.6rem; background-color: #fff; }
 
 .bt_add{padding: 5px;
   border:1px solid #ddd;
-  font-size: 1.4rem;
+  cursor: pointer;
+    font-size: 1.4rem;
      border-radius: 3px;  
     background-color: #fff;
 padding: 5px 10px;
@@ -180,9 +186,13 @@ border: 0.5px solid #666;}
   width:100%;
   padding: 10px;
   text-align: center;
-  background: #ddd;  
- position: fixed;
+  background: #ddd;
+  margin-bottom:0px;
+    position: absolute;
     bottom: 0;
+
+
+  
 }
 
 
@@ -255,171 +265,69 @@ border: 0.5px solid #666;}
     padding-right:15px;}
     .g_regist>input[type=text], select, textarea {
   width: 75%;
-    }
 }
     
-    
-    /* 사용자등록 입력 */
+}
+
+/* 사용자등록 입력 */
     
 .personal-info {
-		width: 70rem;
-		padding: 30px 0;
+		max-width: 70rem;
+		padding: 50px 0;
 		margin: 0 auto;
     border-bottom: 0px solid #ddd;}
 .company-info {
-		max-width: 120rem;
-		padding: 30px 0;
+		max-width: 110rem;
+		padding: 50px 0;
 		margin: 0 auto;
     border-bottom: 0px solid #ddd;}
 .form-area{padding: 0 3rem;
-margin-bottom: 30px}
+margin-bottom: 40px}
 
 		h3 {
 			margin-bottom: 30px;
-			padding: 10px 0px;
-			border-bottom: 1px solid #ddd;
+			padding-bottom: 20px;
+			border-bottom: 2px solid #000;
 			font-size: 2.2rem;
 			font-weight: 700;
 			color: #000;
-            text-align: center;
-            
+            text-align: center
 		}
-.fa-caret-right{padding-right: 5px}
-
-
-.form-area>table {
-    width: 85%; margin: 0 auto;
+.fa-user-plus{color:#999; padding-right: 10px}
+table {
+    width: 90%; margin: 0 auto;
 border: 0px solid #000; }
-.form-area>table th {
-					padding: 5px 20px 10px 0;
-                    width: 110px;
-					font-size: 1.4rem;
+
+				/*th {
+					padding: 10px 20px 10px 0;
+                    width: 120px;
+					font-size: 1.6rem;
 					font-weight: 500;
 					text-align: left;
-					 border: 0px solid #000;
-    vertical-align: top;
-				} 
-.form-area>table td{
-    padding: 5px 5px;
+					color: #000;
+                    border: 0px solid #000;
+				}*/
+td {
+    padding: 5px 0;
 border:0px solid #000;}
 
-.form-area>table input[type='text'],
-.form-area>table input[type='password'],
-.form-area>table textarea
- {
-   width: 100%;
-	height: 30px;
-	padding: 5px ;
-	border: 1px solid #dedede;
-	border-radius: 6px;
-	font-size: 1.6rem;
-     margin: 3px;
-}
-.space{padding-right:5px;padding-left: 5px}
-.button{text-align: center}
-.btn {
-            border:1px solid #;
-            color: white;
-            padding: 10px 40px;
-            font-size: 1.6rem;
-            display:inline-block;
-            border-radius: 5px;
-            margin: 5px;
-            font-weight: bold;
-    
-    
-        }
- .success {
+
+												
+        .success {
             background-color: #7f75e1;
         }
 
         .success:hover {
             background-color: #a59eeb;
         }
- .success01 {
-            border:1px solid #7f75e1;
-     background-color: #fff;
-     color:#7f75e1
-        }
-
-        .success01:hover {
-            border:1px solid #a59eeb;
-            color:#a59eeb
-             
-        }
-.breadcrumb {
-	
-	height: 50px;
-	padding-left: 30px;
-	border-top: 1px solid #dedede;
-	border-bottom: 0px solid #a59eeb;
-    background:url(../images/bg_main_line.png) ;}
-.breadcrumb>h2{  font-size: 1.6rem; line-height: 50px; color: #000; font-weight: normal;  }
-
-
-/* radio ---------------------------------------*/
-.bt_radio {
-  display: inline-block;
-  position: relative;
-  padding-left: 35px;
-     padding-right:  35px;
-    vertical-align: middle;    
-  cursor: pointer;
-  font-size: 1.6rem;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+input[type='text'],
+input[type='password']
+ {
+   width: 100%;
+	height: 30px;
+	padding: 5px 15px;
+	border: 1px solid #dedede;
+	border-radius: 6px;
+	font-size: 1.6rem;
 }
-
-
-/* Hide the browser's default radio button */
-.bt_radio input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-}
-
-/* Create a custom radio button */
-.checkmark {
-  position: absolute;
-  top: 5px;
-  left: 0;
-  height: 20px;
-  width: 20px;
-  background-color: #eee;
-  border-radius: 50%;
- 
-}
-
-/* On mouse-over, add a grey background color */
-.bt_radio:hover input ~ .checkmark {
-  background-color: #ccc;
-}
-
-/* When the radio button is checked, add a blue background */
-.bt_radio input:checked ~ .checkmark {
-  background-color:#7f75e1;
-}
-
-/* Create the indicator (the dot/circle - hidden when not checked) */
-.checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-
-/* Show the indicator (dot/circle) when checked */
-.bt_radio input:checked ~ .checkmark:after {
-  display: inline-block;
-}
-
-/* Style the indicator (dot/circle) */
-.bt_radio .checkmark:after {
- 	top: 6px;
-	left: 6px;
-	width: 8px;
-	height: 8px;
-	border-radius: 50%;
-	background: white;
-}
+.space{padding-right:5px;padding-left: 5px}

@@ -2,8 +2,8 @@
 
 /* ******************** 공용 ******************** */
 a:link {color:#666;}
-a:visited {color:#666; }
-a:hover {color:#0e6bc2;font-weight: bold}
+a:visited {color:#666;}
+a:hover {color:#000;}
 a:active {color:#000;}
 
 body {line-height:2; color:#666;}
