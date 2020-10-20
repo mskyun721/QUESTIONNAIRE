@@ -7,97 +7,35 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="utf-8">
 <link href="../resources/font/fontawesome/css/all.css" rel="stylesheet" type="text/css">
-<style>
-@font-face {
-    font-family: 'NotoSansCJKkr-Regular';
-    src: url("../resources/font/NotoSansCJKkr-Regular.otf") format("opentype");
-}
-body {font-family: NotoSansCJKkr-Regular;
-background-image:url(../resources/images/bg1.JPG);font-size:14px;
-    background-repeat: no-repeat; background-size:cover;
-    background-position: 50% 0
-}
+<link href="../resources/style/login.css" rel="stylesheet" type="text/css">
 
-header{width:550px;margin:0 auto;}
-.container {
-  width:100%;
-  background-color:#fff;
-   margin-top:150px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-.row  { width:85%; height:400px; padding:30px; margin:20px;   }
-.row h1 { text-align: center; color:#777;} 
-input[type=text], input[type=password] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;  
-  box-sizing: border-box;
-  border: none;
-  border-bottom: 1px solid #ddd;
-}
-
-button {
-  background-color: #4aacbd;
-  color: white;
-  padding: 15px;
-  margin: 20px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  font-size:16px;
-  border-radius: 5px;
-}
-button:hover {
-  opacity: 0.8;
-  border-radius: 5px;
-}
-span.psw {
-  float: right;
-}
-
-footer {clear: both; width: 100%; height:50px; text-align: center; font-size:12px; color:#fff;} 
-
-/* Change styles for span and cancel button on extra small screens */
-
-@media screen and (max-width: 768px) {
-  span.psw {
-     display: block;
-     float: none;
-  }
-header{width:80%;margin:auto;}
-.container {
-  width:100%;
-  background-color:#fff;
-   margin-top:100px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-.row  { width:85%; height:400px; padding:15px; margin:20px;   } 
-}
-@media screen and (max-width: 480px) {
-  span.psw {
-     display: block;
-     float: none;
-  }
-header{width:280px;margin:auto;}
-.container {
-  width:100%;
-  background-color:#fff;
-   margin-top:80px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-.row  { width:80%; height:400px; padding:10px; margin:15px;   }
-  
-}
-
-</style>
 </head>
 <body>
-<header>
-<div class="container">
+<div id="wrap_g">
+	<div id="login">
+		<div class="row">
+			<div class="col_l_g"></div>
+			<div class="col_r_g">
+				<h1 >방문자 입력</h1>
+				<div >
+					<form method="post" action="research">
+						<c:if test="${sessionScope.untcd != null}"><input type="hidden" name="UNTCD" value="${sessionScope.untcd }"></c:if>
+						<c:if test="${sessionScope.untcd == null}"><input type="hidden" name="UNTCD" value="${param.UNTCD }"></c:if>
+						<input type="text" placeholder="이름" name="QUEEMPNM" required>
+						<br>
+						<input type="text" placeholder="온도" name="TEMPERATURE" required>
+						<br>
+						<input type="text" placeholder="전화번호   ex)010-1234-5678" name="QUEHPNO" required>
+						<button type="submit">등록</button>
+					</form>
+				</div>
+			</div>  
+		</div> 
+	</div>
+	
+	<footer>Copyright © 2020 Company</footer>
+</div>
+<%-- <div class="container">
     <div class="row">
       <h1>설문조사</h1><br/>
       <div >
@@ -114,8 +52,6 @@ header{width:280px;margin:auto;}
    
       </div>  
     </div>
-</div>
-</header>
-<footer class="footer">Copyright © 2019 Company</footer>
+</div> --%>
 </body>
 </html>
