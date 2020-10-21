@@ -99,7 +99,29 @@ $(document).ready(function() {
 				</div>
 			</form>
 			</div>
-			<div>
+			<div class="rightcolumn">
+
+            <table >
+                <tr><c:if test="${sessionScope.userID == 'sunsoft' }"><th>방문사업장</th></c:if>
+                	<th>방문자</th>
+					<th>연락처</th>
+					<th>온도</th>
+					<th>방문일</th>
+					<th>설문내역 보기</th></tr>
+                <c:forEach items="${qmList }" var="list" varStatus="i">
+						<tr><c:if test="${sessionScope.userID == 'sunsoft' }"><td>${list.UNTNM }</td></c:if>
+							<td>${list.QUEEMPNM }</td>
+							<td>${list.QUEHPNO }</td>
+							<td><fmt:formatNumber value="${list.TEMPERATURE }" pattern=".0"/>°C</td>
+							<td>${list.QUEDATE }</td>
+							<td><button id="detail${i.index }"><i class="fas fa-info-circle"></i>조회</button>
+								<input type="hidden" id="untcd${i.index }" value="${list.UNTCD }">
+								<input type="hidden" id="quedate${i.index }" value="${list.QUEDATE }">
+								<input type="hidden" id="quehpno${i.index }" value="${list.QUEHPNO }"></td></tr>
+				</c:forEach>
+                </table>
+            </div>
+			<%-- <div>
 				<table class="table100">
 					<thead>
 						<tr><c:if test="${sessionScope.userID == 'sunsoft' }"><th>방문사업장</th></c:if>
@@ -121,7 +143,7 @@ $(document).ready(function() {
 								<input type="hidden" id="quehpno${i.index }" value="${list.QUEHPNO }"></td></tr>
 					</c:forEach></tbody>
 				</table>
-			</div>
+			</div> --%>
 		</div><!-- card end -->
 	</div>
 	<div style="float: right; width: 45%">

@@ -83,20 +83,22 @@ $(document).ready(function() {
 			</section>
 			<form action="testResult">
 				<section id="contents_a">
-				<div class="inbox">
-					<h3>${list.QUENO }1.${list.QUECONT }질문</h3>
-					<label class="radio-inline">
-						<input type="radio" name="QUEINTYPE${i.index}" value="0"> 예
-					</label>
-					<label class="radio-inline">
-						<input type="radio" name="QUEINTYPE${i.index}" value="1"> 아니오
-					</label>
-					<label class="radio-inline">
-						기타 <input type="text" name="QUEREMARK" id="QUEREMARK${i.index}" style="border: 1px solid">
-					</label>
-					<input type="hidden" id="listCount" value="${listCount }">
-					<input type="hidden" id="QUEHPNO" value="${param.QUEHPNO }">
-				</div>
+				<c:forEach items="${questionList}" var="list" varStatus="i">
+					<div class="inbox">
+						<h3>${list.QUENO }.${list.QUECONT }</h3>
+						<label class="radio-inline">
+							<input type="radio" name="QUEINTYPE${i.index}" value="0"> 예
+						</label>
+						<label class="radio-inline">
+							<input type="radio" name="QUEINTYPE${i.index}" value="1"> 아니오
+						</label>
+						<label class="radio-inline">
+							기타 <input type="text" name="QUEREMARK" id="QUEREMARK${i.index}" style="border: 1px solid">
+						</label>
+						<input type="hidden" id="listCount" value="${listCount }">
+						<input type="hidden" id="QUEHPNO" value="${param.QUEHPNO }">
+					</div>
+				</c:forEach>
 			</section>
 				<c:if test="${sessionScope.untcd != null}"><input type="hidden" id="UNTCD" name="UNTCD" value="${sessionScope.untcd }"></c:if>
 				<c:if test="${sessionScope.untcd == null}"><input type="hidden" id="UNTCD" name="UNTCD" value="${param.UNTCD }"></c:if>

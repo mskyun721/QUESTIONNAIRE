@@ -19,8 +19,8 @@
       <h1 >로그인</h1>
       <div >
 	<form method="post" action="loginCheck">
-    <input type="text" placeholder="Username" name="uname" required>    
-    <input type="password" placeholder="Password" name="psw" required>  
+    <input type="text" placeholder="Username" name="USERID" id="USERID"required>    
+    <input type="password" placeholder="Password" name="USERPW" id="USERPW" required>  
     <button type="submit">Login</button>
     
       <input type="checkbox" checked="checked" name="remember"> Remember me

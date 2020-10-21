@@ -19,8 +19,8 @@
 				<h1 >방문자 입력</h1>
 				<div >
 					<form method="post" action="research">
-						<c:if test="${sessionScope.untcd != null}"><input type="hidden" name="UNTCD" value="${sessionScope.untcd }"></c:if>
-						<c:if test="${sessionScope.untcd == null}"><input type="hidden" name="UNTCD" value="${param.UNTCD }"></c:if>
+						<c:if test="${sessionScope.untcd != null}"><input type="text" name="UNTCD" value="${sessionScope.untcd }"></c:if>
+						<c:if test="${sessionScope.untcd == null}"><input type="text" name="UNTCD" value="${param.UNTCD }"></c:if>
 						<input type="text" placeholder="이름" name="QUEEMPNM" required>
 						<br>
 						<input type="text" placeholder="온도" name="TEMPERATURE" required>
