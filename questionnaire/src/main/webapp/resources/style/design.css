@@ -62,29 +62,71 @@ header nav>ul>li>ul>li>a {font-size:1.4rem;}
   margin: 0 auto
   
 }
+.rightcolumn_60 {
+  float: left;
+  width: 60%;
+  margin: 0 auto
+  
+}
+.rightcolumn_40 {
+  float: left;
+  width: 39%;
+  margin: 0 auto
+  
+}
 /* 테이블 리스트 */
 .rightcolumn>table {
   border-collapse: collapse;
   width: 100%;
   margin: 10px auto 0;
- font-size: 1.3rem;
-    
-  
+ font-size: 1.3rem; 
 }
-
 .rightcolumn>table th,.rightcolumn>table td {
   text-align: center;
   padding: 5px 3px;
   border-bottom:1px solid #eee
 }
-
-
-
 .rightcolumn>table th {
   background-color: #8c8c8c;
     font-weight: normal;
   color: white;
 }
+
+
+.rightcolumn_60>table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 10px auto 0;
+ font-size: 1.3rem;
+}
+.rightcolumn_60>table th,.rightcolumn_60>table td {
+  text-align: center;
+  padding: 5px 3px;
+  border-bottom:1px solid #eee
+}
+.rightcolumn_60>table th {
+  background-color: #8c8c8c;
+    font-weight: normal;
+  color: white;
+}
+
+.rightcolumn_40>table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 10px auto 0;
+ font-size: 1.3rem;   
+}
+.rightcolumn_40>table th,.rightcolumn_40>table td {
+  text-align: center;
+  padding: 5px 3px;
+  border-bottom:1px solid #eee
+}
+.rightcolumn_40>table th {
+  background-color: #8c8c8c;
+    font-weight: normal;
+  color: white;
+}
+
 /* Add a card effect for articles */
 .card {
   border: 1px solid #e1e1e1;  

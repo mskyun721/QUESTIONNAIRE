@@ -10,8 +10,6 @@
 <link type="text/css" href="resources/style/common.css" rel="stylesheet">
 <link type="text/css" href="resources/style/layout.css" rel="stylesheet">
 <link type="text/css" href="resources/style/design.css" rel="stylesheet">
-<!-- <link href="resources/css/default.css" rel="stylesheet" type="text/css">
-<link href="resources/css/table.css" rel="stylesheet" type="text/css"> -->
 <link href="resources/font/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -40,9 +38,9 @@
 </script>
 </head>
 <body>
+<!-- header -->
 <jsp:include page="public/header.jsp"/>
 <!-- header -->
-    <!-- //end header -->
     <div class="row">
       <div class="breadcrumb">
       <h2><i class="fas fa-building"></i> 사업장 등록</h2>
