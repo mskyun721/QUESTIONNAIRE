@@ -41,7 +41,7 @@ $(document).ready(function() {
 		var popUpX = (window.screen.width/2)-400;
 		var popUpY = (window.screen.height/2)-250;
 		
-		window.open('userForm','_blank','width=320, height=320, left='+popUpX+', top='+popUpY);
+		window.open('userForm','_blank','width=730, height=745, left='+popUpX);
 	});
 	
 	$("[id^=edit]").click(function(){
@@ -53,7 +53,7 @@ $(document).ready(function() {
 		var popUpX = (window.screen.width/2)-400;
 		var popUpY = (window.screen.height/2)-250;
 		
-		window.open('userForm?USERID='+userid+'&USERPW='+userpw,'_blank','width=320, height=320, left='+popUpX+', top='+popUpY);
+		window.open('userForm?USERID='+userid+'&USERPW='+userpw,'_blank','width=730, height=745, left='+popUpX);
 	});
 	
 });

@@ -138,6 +138,10 @@ public class MainController {
 			uiDto.setUNTCD(session.getAttribute("untcd").toString().trim());
 		}
 		uiDto.setREGUSER(session.getAttribute("userNM").toString().trim());
+		String hp1 = uiDto.getHPNO1();
+		String hp2 = uiDto.getHPNO2();
+		String hp3 = uiDto.getHPNO3();
+		uiDto.setHPNO(hp1+"-"+hp2+"-"+hp3);
 		String result = mainService.insertUser(uiDto);
 		
 		try {
@@ -176,6 +180,7 @@ public class MainController {
 	public String corpManageForm(Model model,UntMstInfoDTO umiDto){
 		if (umiDto.getUNTCD() != "") {
 			UntMstInfoDTO mstOne = mainService.mstOne(umiDto);
+			
 			model.addAttribute("mstOne",mstOne);
 		}
 		return "corpManageForm";
@@ -183,7 +188,16 @@ public class MainController {
 	@RequestMapping(value="/insertCst", method=RequestMethod.POST)
 	public String insertCst(UntMstInfoDTO umiDto,HttpServletResponse response,HttpSession session){
 		umiDto.setREGUSER(session.getAttribute("userNM").toString().trim());
-		
+		String tel1 = umiDto.getTELNO1();
+		String tel2 = umiDto.getTELNO2();
+		String tel3 = umiDto.getTELNO3();
+		String fax1 = umiDto.getFAXNO1();
+		String fax2 = umiDto.getFAXNO2();
+		String fax3 = umiDto.getFAXNO3();
+		System.out.println(umiDto.getUNTCD());
+		umiDto.setTELNO(tel1+"-"+tel2+"-"+tel3);
+		umiDto.setFAXNO(fax1+"-"+fax2+"-"+fax3);
+		System.out.println(umiDto.getFAXNO());
 		mainService.insertCst(umiDto);
 		
 		try {

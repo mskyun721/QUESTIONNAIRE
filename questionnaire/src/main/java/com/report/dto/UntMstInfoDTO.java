@@ -22,6 +22,13 @@ public class UntMstInfoDTO {
 	private String USERID;
 	private String condition;
 	private String value;
+	private String TELNO1;
+	private String TELNO2;
+	private String TELNO3;
+	private String FAXNO1;
+	private String FAXNO2;
+	private String FAXNO3;
+	
 	
 	public String getUSERID() {
 		return USERID;
@@ -144,6 +151,42 @@ public class UntMstInfoDTO {
 	}
 	public void setEDTDATIME(String eDTDATIME) {
 		EDTDATIME = eDTDATIME;
+	}
+	public String getTELNO1() {
+		return TELNO1;
+	}
+	public void setTELNO1(String tELNO1) {
+		TELNO1 = tELNO1;
+	}
+	public String getTELNO2() {
+		return TELNO2;
+	}
+	public void setTELNO2(String tELNO2) {
+		TELNO2 = tELNO2;
+	}
+	public String getTELNO3() {
+		return TELNO3;
+	}
+	public void setTELNO3(String tELNO3) {
+		TELNO3 = tELNO3;
+	}
+	public String getFAXNO1() {
+		return FAXNO1;
+	}
+	public void setFAXNO1(String fAXNO1) {
+		FAXNO1 = fAXNO1;
+	}
+	public String getFAXNO2() {
+		return FAXNO2;
+	}
+	public void setFAXNO2(String fAXNO2) {
+		FAXNO2 = fAXNO2;
+	}
+	public String getFAXNO3() {
+		return FAXNO3;
+	}
+	public void setFAXNO3(String fAXNO3) {
+		FAXNO3 = fAXNO3;
 	}
 	
 	

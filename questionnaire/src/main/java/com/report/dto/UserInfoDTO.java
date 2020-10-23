@@ -18,7 +18,9 @@ public class UserInfoDTO {
 	private String UNTNM;
 	private String condition;
 	private String value;
-	
+	private String HPNO1;
+	private String HPNO2;
+	private String HPNO3;
 	
 	public String getUNTNM() {
 		return UNTNM;
@@ -105,5 +107,23 @@ public class UserInfoDTO {
 	}
 	public void setEDTDATIME(String eDTDATIME) {
 		EDTDATIME = eDTDATIME;
+	}
+	public String getHPNO1() {
+		return HPNO1;
+	}
+	public void setHPNO1(String hPNO1) {
+		HPNO1 = hPNO1;
+	}
+	public String getHPNO2() {
+		return HPNO2;
+	}
+	public void setHPNO2(String hPNO2) {
+		HPNO2 = hPNO2;
+	}
+	public String getHPNO3() {
+		return HPNO3;
+	}
+	public void setHPNO3(String hPNO3) {
+		HPNO3 = hPNO3;
 	}
 }

@@ -10,77 +10,88 @@
 <link type="text/css" href="resources/style/common.css" rel="stylesheet">
 <link type="text/css" href="resources/style/layout.css" rel="stylesheet">
 <link type="text/css" href="resources/style/design.css" rel="stylesheet">
-<link href="resources/css/default.css" rel="stylesheet" type="text/css">
-<link href="resources/css/table.css" rel="stylesheet" type="text/css">
+<!-- <link href="resources/css/default.css" rel="stylesheet" type="text/css">
+<link href="resources/css/table.css" rel="stylesheet" type="text/css"> -->
 <link href="resources/font/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	var ArrHp = $('#HPNO').val().split("-");
+	$('#HPNO1').val(ArrHp[0]);
+	$('#HPNO2').val(ArrHp[1]);
+	$('#HPNO3').val(ArrHp[2]);
+	
+});
+</script>
+
 </head>
 <body>
-<div class="popUpCard">
-	<div>
-		<h3 style="text-align: center;">사용자 등록</h3><br>
-	</div>
-	<form action="insertUser" method="post" class="subPageForm">
-		<c:if test="${sessionScope.userID == 'sunsoft' }">
-			<div class="formRow">
-				<div class="floatLeft width200">
-					<div class="lbWidth"><label for="UNTCD">사업장</label></div>
-					<input type="text" size="10" name="UNTCD" required="required" value="${userOne.USERID }">
-					
-				</div>
-			</div>
-			<div class="clear"></div>
-		</c:if>
-		<div class="formRow">
-			<div class="floatLeft width200">
-				<div class="lbWidth"><label for="USERID">ID</label></div>
-				<input type="text" size="10" name="USERID" required="required" value="${userOne.USERID }">
-				
-			</div>
-		</div>
-		<div class="clear"></div>
-		<div class="formRow">
-			<div class="floatLeft width200">
-				<div class="floatLeft">
-					<div class="lbWidth"><label for="USERPW">Password</label></div>
-					<input type="password" size="10" name="USERPW" required="required" value="${userOne.USERPW }">
-				</div>
-			</div>
-		</div>
-		<div class="clear"></div>
-		<div class="formRow">
-			<div class="floatLeft width200">
-				<div class="lbWidth"><label for="EMPNM">이름</label></div>
-				<input type="text" size="10" name="EMPNM" value="${userOne.EMPNM }">
-			</div>
-		</div>
-		<div class="clear"></div>
-		<div class="formRow">
-			<div class="floatLeft width200">
-				<div class="lbWidth"><label for="DPTNM">부서명</label></div>
-				<input type="text" size="10" name="DPTNM" value="${userOne.DPTNM }">
-			</div>
-		</div>
-		<div class="clear"></div>
-		<div class="formRow">
-			<div class="floatLeft width200">
-				<div class="lbWidth"><label for="HPNO">H.P</label></div>
-				<input type="text" size="10" name="HPNO" value="${userOne.HPNO }">
-			</div>
-		</div>
-		<div class="clear"></div>
-		<div class="formRow">
-			<div class="floatLeft width200">
-				<div class="lbWidth"><label for="REMARK">비고</label></div>
-				<input type="text" size="10" name="REMARK" value="${userOne.REMARK }">
-			</div>
-		</div>
-		<div class="clear"></div>
-		<br>
-		<div class="buttonBox">
-		<button type="submit"><i class="fas fa-save" style="font-size:15px;"></i>&nbsp;&nbsp;저장</button>&nbsp;
-		<button type="button" onclick="window.close(); return false;"><i class="fas fa-window-close" style="font-size:15px;"></i>&nbsp;&nbsp;취소</button>
-		</div>
-	</form>
+
+<div class="row">
+         <div class="breadcrumb">
+
+  </div>
+    <div class="personal-info">
+        <h3>사용자 등록</h3>
+        <form action="insertUser" method="post">
+        <div class="form-area">
+
+            <table>
+                <tbody>
+                    <tr>
+                        <th scope="col"><i class="fas fa-caret-right"></i> 사업장</th>
+                        <td>
+                            <input type="text" name="UNTCD" required="required" value="${userOne.USERID }" placeholder="" maxlength="20" style="max-width: 320px;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="col"><i class="fas fa-caret-right"></i> 아이디</th>
+                        <td>
+                            <input type="text" name="USERID" required="required" value="${userOne.USERID }" placeholder="" maxlength="20" style="max-width: 320px;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="col"><i class="fas fa-caret-right"></i> 비밀번호</th>
+                        <td>
+                            <input type="password" name="USERPW" required="required" value="${userOne.USERPW }" placeholder="" maxlength="20" style="max-width: 320px;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="col"><i class="fas fa-caret-right"></i> 이 름</th>
+                        <td>
+                            <input type="text" name="EMPNM" value="${userOne.EMPNM }" placeholder="" style="max-width: 320px;">
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="col"><i class="fas fa-caret-right"></i> 부서명</th>
+                        <td>
+                            <input type="text" name="DPTNM" value="${userOne.DPTNM }" placeholder="" style="max-width: 320px;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="col"><i class="fas fa-caret-right"></i> 핸드폰</th>
+                        <td>
+                            <input type="text" id="HPNO1" name="HPNO1" value="" style="max-width: 90px;"><span class="space"> - </span>
+                            <input type="text" id="HPNO2" name="HPNO2" value="" style="max-width: 90px;"><span class="space"> - </span><input type="text" id="HPNO3" name="HPNO3" value="" style="max-width: 90px;">
+                        	<input type="text" id="HPNO" name="HPNO" value="${userOne.HPNO }">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="col"><i class="fas fa-caret-right"></i> 비 고</th>
+                        <td>
+							<textarea placeholder="" style="max-width: 320px; height: 100px" name="REMARK">${mstOne.REMARK }</textarea>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="button">
+                 <button type="submit" class="btn success01">저장</button>
+             <button type="submit" onclick="window.close(); return false;" class="btn success01">취소</button>
+        </div>
+        </form>
+    </div>
 </div>
 </body>
 </html>

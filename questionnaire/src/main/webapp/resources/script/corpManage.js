@@ -21,10 +21,10 @@ $(document).ready(function() {
 	$('#condition').val(conditionParam).attr("selected");
 	
 	
-	var popUpX = (window.screen.width/2)-400;
-	var popUpY = (window.screen.height/2)-250;
+	var popUpX = (window.screen.width/2)-500;
+	var popUpY = (window.screen.height/2);
 	$('#add').click(function(){
-		window.open('corpManageForm','_blank','width=580, height=435, left='+popUpX+', top='+popUpY);
+		window.open('corpManageForm','_blank','width=1125, height=770, left='+popUpX);
 	});
 	
 	$("[id^=edit]").click(function(){
@@ -32,7 +32,7 @@ $(document).ready(function() {
 		var num = id.replace("edit","");
 		var result = $('#delRow'+num).val();
 		
-		window.open('corpManageForm?UNTCD='+result,'_blank','width=580, height=435, left='+popUpX+', top='+popUpY);
+		window.open('corpManageForm?UNTCD='+result,'_blank','width=1125, height=770, left='+popUpX);
 	});
 	
 	$("[id^=QrCode]").click(function(){

@@ -44,7 +44,7 @@ $(document).ready(function() {
 	var popUpX = (window.screen.width/2)-400;
 	var popUpY = (window.screen.height/2)-250;
 	$('#add').click(function(){
-		window.open('questionForm','_blank','width=520, height=250, left='+popUpX+', top='+popUpY);
+		window.open('questionForm','_blank','width=790, height=480, left='+popUpX+', top='+popUpY);
 	});
 	
 	$("[id^=edit]").click(function(){
@@ -53,7 +53,7 @@ $(document).ready(function() {
 		var untcd = $('#UNTCDRow'+num).val();
 		var queseq = $('#QUESEQRow'+num).val();
 		
-		window.open('questionForm?UNTCD='+untcd+'&QUESEQ='+queseq,'_blank','width=580, height=250, left='+popUpX+', top='+popUpY);
+		window.open('questionForm?UNTCD='+untcd+'&QUESEQ='+queseq,'_blank','width=790, height=480, left='+popUpX+', top='+popUpY);
 	});
 	
 	
