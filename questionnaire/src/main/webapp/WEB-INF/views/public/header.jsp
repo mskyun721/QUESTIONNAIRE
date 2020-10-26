@@ -7,7 +7,7 @@
         <div class="top">
             <a href="#" class="btn_menu"><i class="fa fa-bars"></i></a>
             <h1><a href="/question/Main"><img src="/question/resources/images/logo.png" width="150" height="43"></a></h1>
-            <h2>${sessionScope.userNM }님</h2>
+            <span class="userNm">${sessionScope.userNM }</span>
             <a href="/question/logout" class="btn_logout" ><i class="fas fa-user"></i> 로그아웃</a>
         </div>
         <nav class="btm">

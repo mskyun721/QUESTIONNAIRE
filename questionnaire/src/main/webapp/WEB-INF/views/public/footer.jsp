@@ -2,5 +2,5 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <div class="footer">
-  <address>Footer</address>
+    <address>Copyright © 2020 Company</address>
 </div>

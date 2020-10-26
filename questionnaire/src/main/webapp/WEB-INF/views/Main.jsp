@@ -94,17 +94,16 @@ $(document).ready(function() {
 
 <!-- //end header -->
 <div class="row">
-  <div>
+	<div class="breadcrumb">
+		<h2><i class="fas fa-caret-right"></i>월별 방문자 현황</h2>
+	</div>
     <div class="card">
-      <h3><i class="fas fa-caret-right"></i>월별 방문자 현황</h3>
-      <hr />
       <div id="chart_div" style="height: 500px;"></div>
       </div>
-   </div>
   </div>
 
 <div class="footer">
-  <address>Footer</address>
+    <address>Copyright © 2020 Company</address>
 </div>
 </body>
 </html>

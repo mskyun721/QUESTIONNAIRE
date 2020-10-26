@@ -194,10 +194,8 @@ public class MainController {
 		String fax1 = umiDto.getFAXNO1();
 		String fax2 = umiDto.getFAXNO2();
 		String fax3 = umiDto.getFAXNO3();
-		System.out.println(umiDto.getUNTCD());
 		umiDto.setTELNO(tel1+"-"+tel2+"-"+tel3);
 		umiDto.setFAXNO(fax1+"-"+fax2+"-"+fax3);
-		System.out.println(umiDto.getFAXNO());
 		mainService.insertCst(umiDto);
 		
 		try {

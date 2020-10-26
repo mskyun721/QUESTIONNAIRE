@@ -74,7 +74,7 @@ $(document).ready(function() {
                         <td>
                             <input type="text" id="HPNO1" name="HPNO1" value="" style="max-width: 90px;"><span class="space"> - </span>
                             <input type="text" id="HPNO2" name="HPNO2" value="" style="max-width: 90px;"><span class="space"> - </span><input type="text" id="HPNO3" name="HPNO3" value="" style="max-width: 90px;">
-                        	<input type="text" id="HPNO" name="HPNO" value="${userOne.HPNO }">
+                        	<input type="hidden" id="HPNO" name="HPNO" value="${userOne.HPNO }">
                         </td>
                     </tr>
                     <tr>

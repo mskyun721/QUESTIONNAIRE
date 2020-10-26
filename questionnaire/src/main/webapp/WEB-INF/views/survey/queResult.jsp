@@ -96,44 +96,43 @@ $(document).ready(function() {
 			<button type="submit" class="bt_search"><i class="fa fa-search"></i></button>
 		</div>
 	</form>
-	<div class="rightcolumn_60">
-          <table >
-              <tr><c:if test="${sessionScope.userID == 'sunsoft' }"><th>방문사업장</th></c:if>
-              	<th>방문자</th>
-				<th>연락처</th>
-				<th>온도</th>
-				<th>방문일</th>
-				<th>설문내역 보기</th></tr>
-              <c:forEach items="${qmList }" var="list" varStatus="i">
-				<tr><c:if test="${sessionScope.userID == 'sunsoft' }"><td>${list.UNTNM }</td></c:if>
-					<td>${list.QUEEMPNM }</td>
-					<td>${list.QUEHPNO }</td>
-					<td><fmt:formatNumber value="${list.TEMPERATURE }" pattern=".0"/>°C</td>
-					<td>${list.QUEDATE }</td>
-					<td><button id="detail${i.index }"><i class="fas fa-info-circle"></i>조회</button>
-						<input type="hidden" id="untcd${i.index }" value="${list.UNTCD }">
-						<input type="hidden" id="quedate${i.index }" value="${list.QUEDATE }">
-						<input type="hidden" id="quehpno${i.index }" value="${list.QUEHPNO }"></td></tr>
-			</c:forEach>
-	    </table>
-	</div>
-	<div class="rightcolumn_40">
-		<table>
-			<tr><th>세부설문내역<th></tr>
-		</table>
-		<c:if test="${qhList != null }">
-			<c:forEach items="${qhList}" var="list" varStatus="i">
-				<div class="card">
-					<span>${list.QUEHISSEQ }.</span>&nbsp;&nbsp;<span>${list.QUECONT }</span><br>
-					<c:if test="${list.QUEINTYPE == '0' }"><span>답변 : 예</span></c:if>
-					<c:if test="${list.QUEINTYPE == '1' }"><span>답변 : 아니요</span></c:if>
-					<c:if test="${list.QUEREMARK != ' '}"><pre style="display: inline; margin-left: 5em;">${list.QUEREMARK }</pre></c:if>
-				</div>
-				
-			</c:forEach>
-		</c:if>
-	
-	</div>
+		<div class="rightcolumn_60" style="margin-left: 10px;">
+	          <table >
+	              <tr><c:if test="${sessionScope.userID == 'sunsoft' }"><th>방문사업장</th></c:if>
+	              	<th>방문자</th>
+					<th>연락처</th>
+					<th>온도</th>
+					<th>방문일</th>
+					<th>설문내역 보기</th></tr>
+	              <c:forEach items="${qmList }" var="list" varStatus="i">
+					<tr><c:if test="${sessionScope.userID == 'sunsoft' }"><td>${list.UNTNM }</td></c:if>
+						<td>${list.QUEEMPNM }</td>
+						<td>${list.QUEHPNO }</td>
+						<td><fmt:formatNumber value="${list.TEMPERATURE }" pattern=".0"/>°C</td>
+						<td>${list.QUEDATE }</td>
+						<td><button id="detail${i.index }"><i class="fas fa-info-circle"></i>조회</button>
+							<input type="hidden" id="untcd${i.index }" value="${list.UNTCD }">
+							<input type="hidden" id="quedate${i.index }" value="${list.QUEDATE }">
+							<input type="hidden" id="quehpno${i.index }" value="${list.QUEHPNO }"></td></tr>
+				</c:forEach>
+		    </table>
+		</div>
+		<div class="rightcolumn_40">
+			<table>
+				<tr><th>세부설문내역<th></tr>
+			</table>
+			<c:if test="${qhList != null }">
+				<c:forEach items="${qhList}" var="list" varStatus="i">
+					<div class="card">
+						<span>${list.QUEHISSEQ }.</span>&nbsp;&nbsp;<span>${list.QUECONT }</span><br>
+						<c:if test="${list.QUEINTYPE == '0' }"><span>답변 : 예</span></c:if>
+						<c:if test="${list.QUEINTYPE == '1' }"><span>답변 : 아니요</span></c:if>
+						<c:if test="${list.QUEREMARK != ' '}"><pre style="display: inline; margin-left: 5em;">${list.QUEREMARK }</pre></c:if>
+					</div>
+					
+				</c:forEach>
+			</c:if>
+		</div>
 </div>
 <!-- footer -->
 <jsp:include page="../public/footer.jsp"/>
